@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IGHEHRC - Patient Testimonials</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-blue: #2563EB;
+            --secondary-blue: #1E40AF;
+            --light-blue: #DBEAFE;
+            --accent-blue: #3B82F6;
+            --lighter-blue: #EFF6FF;
+            --white: #FFFFFF;
+            --dark-text: #1F2937;
+            --gray-text: #6B7280;
+            --border-color: #E5E7EB;
+            --light-bg: #FAFBFC;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background: var(--white);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.02) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .testimonials-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="20" fill="url(%23grid)"/></svg>');
+            z-index: 0;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section Header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+            border-radius: 2px;
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            color: var(--gray-text);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Slider Container */
+        .testimonials-slider {
+            position: relative;
+            margin: 0 auto;
+            max-width: 1000px;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 2rem;
+        }
+
+        .testimonial-slide {
+            flex: 0 0 100%;
+            display: flex;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        /* Main Testimonial Card */
+        .main-testimonial {
+            flex: 2;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+        }
+
+        .main-testimonial::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border-radius: 24px;
+            z-index: -1;
+        }
+
+        .quote-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .quote-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--white), rgba(255, 255, 255, 0.8));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+        }
+
+        .quote-icon i {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+        }
+
+        .main-quote {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: var(--white);
+            font-style: italic;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .patient-profile {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .patient-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--white), rgba(255, 255, 255, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+        }
+
+        .patient-info {
+            flex: 1;
+        }
+
+        .patient-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.3rem;
+        }
+
+        .patient-treatment {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .rating-stars i {
+            font-size: 1.1rem;
+            color: #FFD700;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        /* Side Testimonials */
+        .side-testimonials {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .side-testimonial {
+            background: var(--white);
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.05);
+        }
+
+        .side-testimonial:hover {
+            border-color: var(--primary-blue);
+            transform: translateX(5px);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.1);
+        }
+
+        .side-testimonial.active {
+            background: var(--lighter-blue);
+            border-color: var(--primary-blue);
+            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+        }
+
+        .side-quote {
+            font-size: 0.9rem;
+            color: var(--gray-text);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .side-patient {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .side-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--lighter-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-blue);
+        }
+
+        .side-info {
+            flex: 1;
+        }
+
+        .side-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 0.2rem;
+        }
+
+        .side-treatment {
+            font-size: 0.8rem;
+            color: var(--primary-blue);
+        }
+
+        /* Navigation */
+        .slider-navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .nav-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .nav-button i {
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .slider-dots {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        /* Stats Section */
+        .testimonial-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-card {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 600;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .testimonial-slide {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .side-testimonials {
+                flex-direction: row;
+                overflow-x: auto;
+                gap: 1rem;
+            }
+            
+            .side-testimonial {
+                flex: 0 0 250px;
+            }
+            
+            .testimonial-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 4rem 0;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .main-testimonial {
+                padding: 2rem;
+            }
+            
+            .main-quote {
+                font-size: 1.1rem;
+            }
+            
+            .side-testimonials {
+                display: none;
+            }
+            
+            .testimonial-stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .stat-card {
+                padding: 1.5rem 1rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .main-testimonial {
+                padding: 1.5rem;
+            }
+            
+            .patient-profile {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-testimonial {
+            animation: slideIn 0.8s ease-out;
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .slider-track {
+                transition: none;
+            }
+            
+            .main-testimonial {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Patient Testimonials Section -->
+    <section class="testimonials-section" id="testimonials">
+        <div class="testimonials-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-subtitle">Patient Stories</div>
+                <h2 class="section-title">What Our Patients Say</h2>
+                <p class="section-description">
+                    Real experiences from patients who have trusted IGHEHRC with their vision care. 
+                    Discover inspiring stories of restored sight and transformed lives.
+                </p>
+            </div>
+
+            <!-- Testimonials Slider -->
+            <div class="testimonials-slider">
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide">
+                        <div class="main-testimonial">
+                            <div class="quote-section">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="main-quote">
+                                    "The cataract surgery I had at IGHEHRC was absolutely life-changing. The doctors were incredibly skilled and the entire team made me feel comfortable throughout the process. My vision is clearer than it's been in years!"
+                                </p>
+                            </div>
+                            <div class="patient-profile">
+                                <div class="patient-image">RS</div>
+                                <div class="patient-info">
+                                    <div class="patient-name">Rajesh Sharma</div>
+                                    <div class="patient-treatment">Cataract Surgery Patient</div>
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-testimonials">
+                            <div class="side-testimonial active" data-slide="0">
+                                <p class="side-quote">"Amazing LASIK experience. Perfect vision now!"</p>
+                                <div class="side-patient">
+                                    <div class="side-avatar">AK</div>
+                                    <div class="side-info">
+                                        <div class="side-name">Amit Kumar</div>
+                                        <div class="side-treatment">LASIK Surgery</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-testimonial" data-slide="1">
+                                <p class="side-quote">"Excellent pediatric care for my daughter's treatment."</p>
+                                <div class="side-patient">
+                                    <div class="side-avatar">SG</div>
+                                    <div class="side-info">
+                                        <div class="side-name">Sunita Gupta</div>
+                                        <div class="side-treatment">Pediatric Care</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-testimonial" data-slide="2">
+                                <p class="side-quote">"World-class corneal transplant. Highly recommend!"</p>
+                                <div class="side-patient">
+                                    <div class="side-avatar">JA</div>
+                                    <div class="side-info">
+                                        <div class="side-name">John Anderson</div>
+                                        <div class="side-treatment">Corneal Transplant</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <div class="main-testimonial">
+                            <div class="quote-section">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="main-quote">
+                                    "My LASIK surgery exceeded all expectations. The technology they use is amazing and the results are perfect. I wish I had done this years ago. Highly recommend IGHEHRC to anyone considering vision correction."
+                                </p>
+                            </div>
+                            <div class="patient-profile">
+                                <div class="patient-image">AK</div>
+                                <div class="patient-info">
+                                    <div class="patient-name">Amit Kumar</div>
+                                    <div class="patient-treatment">LASIK Surgery Patient</div>
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-testimonials">
+                            <div class="side-testimonial" data-slide="0">
+                                <p class="side-quote">"Life-changing cataract surgery experience."</p>
+                                <div class="side-patient">
+                                    <div class="side-avatar">RS</div>
+                                    <div class="side-info">
+                                        <div class="side-name">Rajesh Sharma</div>
+                                        <div class="side-treatment">Cataract Surgery</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-testimonial active" data-slide="1">
+                                <p class="side-quote">"Excellent pediatric care for my daughter's treatment."</p>
+                                <div class="side-patient">
+                                    <div class="side-avatar">SG</div>
+                                    <div class="side-info">
+                                        <div class="side-name">Sunita Gupta</div>
+                                        <div class="side-treatment">Pediatric Care</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-testimonial" data-slide="2">
+                                <p class="side-quote">"World-class corneal transplant. Highly recommend!"</p>
+                                <div class="side-patient">
+                                    <div class="side-avatar">JA</div>
+                                    <div class="side-info">
+                                        <div class="side-name">John Anderson</div>
+                                        <div class="side-treatment">Corneal Transplant</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <div class="main-testimonial">
+                            <div class="quote-section">
+                                <div class="quote-icon">
+                                    <i class="fas fa-quote-left"></i>
+                                </div>
+                                <p class="main-quote">
+                                    "The pediatric eye care team was wonderful with my daughter. They made her feel at ease and the treatment for her squint was successful. We're so thankful for the caring approach and excellent results."
+                                </p>
+                            </div>
+                            <div class="patient-profile">
+                                <div class="patient-image">SG</div>
+                                <div class="patient-info">
+                                    <div class="patient-name">Sunita Gupta</div>
+                                    <div class="patient-treatment">Pediatric Care Patient</div>
+                                    <div class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-testimonials">
+                            <div class="side-testimonial" data-slide="0">
+                                <p class="side-quote">"Life-changing cataract surgery experience."</p>
+                                <div class="side-patient">
+                                    <div class="side-avatar">RS</div>
+                                    <div class="side-info">
+                                        <div class="side-name">Rajesh Sharma</div>
+                                        <div class="side-treatment">Cataract Surgery</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-testimonial" data-slide="1">
+                                <p class="side-quote">"Amazing LASIK experience. Perfect vision now!"</p>
+                                <div class="side-patient">
+                                    <div class="side-avatar">AK</div>
+                                    <div class="side-info">
+                                        <div class="side-name">Amit Kumar</div>
+                                        <div class="side-treatment">LASIK Surgery</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="side-testimonial active" data-slide="2">
+                                <p class="side-quote">"World-class corneal transplant. Highly recommend!"</p>
+                                <div class="side-patient">
+                                    <div class="side-avatar">JA</div>
+                                    <div class="side-info">
+                                        <div class="side-name">John Anderson</div>
+                                        <div class="side-treatment">Corneal Transplant</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation -->
+                <div class="slider-navigation">
+                    <button class="nav-button" id="prevBtn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots" id="sliderDots">
+                        <div class="dot active" data-slide="0"></div>
+                        <div class="dot" data-slide="1"></div>
+                        <div class="dot" data-slide="2"></div>
+                    </div>
+                    <button class="nav-button" id="nextBtn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Testimonial Stats -->
+            <div class="testimonial-stats">
+                <div class="stat-card">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">Average Rating</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2500+</div>
+                    <div class="stat-label">Happy Patients</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Satisfaction Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        class TestimonialSlider {
+            constructor() {
+                this.currentSlide = 0;
+                this.totalSlides = 3;
+                this.sliderTrack = document.getElementById('sliderTrack');
+                this.dots = document.querySelectorAll('.dot');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.sideTestimonials = document.querySelectorAll('.side-testimonial');
+                
+                this.init();
+            }
+            
+            init() {
+                // Navigation event listeners
+                this.prevBtn.addEventListener('click', () => this.prevSlide());
+                this.nextBtn.addEventListener('click', () => this.nextSlide());
+                
+                // Dot navigation
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                });
+                
+                // Side testimonial clicks
+                this.sideTestimonials.forEach(testimonial => {
+                    testimonial.addEventListener('click', (e) => {
+                        const slideIndex = parseInt(e.currentTarget.dataset.slide);
+                        this.goToSlide(slideIndex);
+                    });
+                });
+                
+                // Auto-play
+                this.startAutoPlay();
+                
+                // Pause on hover
+                this.sliderTrack.addEventListener('mouseenter', () => this.stopAutoPlay());
+                this.sliderTrack.addEventListener('mouseleave', () => this.startAutoPlay());
+                
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') this.prevSlide();
+                    if (e.key === 'ArrowRight') this.nextSlide();
+                });
+                
+                // Touch/swipe support
+                this.addTouchSupport();
+            }
+            
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateSlider();
+                this.updateDots();
+                this.animateSlide();
+            }
+            
+            nextSlide() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            }
+            
+            prevSlide() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(this.currentSlide);
+            }
+            
+            updateSlider() {
+                const translateX = -this.currentSlide * 100;
+                this.sliderTrack.style.transform = `translateX(${translateX}%)`;
+            }
+            
+            updateDots() {
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentSlide);
+                });
+            }
+            
+            animateSlide() {
+                // Add slide animation class
+                const currentSlideElement = document.querySelectorAll('.testimonial-slide')[this.currentSlide];
+                const mainTestimonial = currentSlideElement.querySelector('.main-testimonial');
+                
+                // Reset animation
+                mainTestimonial.style.animation = 'none';
+                mainTestimonial.offsetHeight; // Trigger reflow
+                mainTestimonial.style.animation = 'slideIn 0.8s ease-out';
+            }
+            
+            startAutoPlay() {
+                this.autoPlayInterval = setInterval(() => {
+                    this.nextSlide();
+                }, 6000);
+            }
+            
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                }
+            }
+            
+            addTouchSupport() {
+                let startX = 0;
+                let startY = 0;
+                let endX = 0;
+                let endY = 0;
+                
+                this.sliderTrack.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                    startY = e.touches[0].clientY;
+                });
+                
+                this.sliderTrack.addEventListener('touchend', (e) => {
+                    endX = e.changedTouches[0].clientX;
+                    endY = e.changedTouches[0].clientY;
+                    
+                    const deltaX = endX - startX;
+                    const deltaY = endY - startY;
+                    
+                    // Only trigger swipe if horizontal movement is greater than vertical
+                    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+                        if (deltaX > 0) {
+                            this.prevSlide();
+                        } else {
+                            this.nextSlide();
+                        }
+                    }
+                });
+            }
+        }
+        
+        // Initialize slider when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new TestimonialSlider();
+        });
+        
+        // Counter animation for stats
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(number => {
+                        animateCounter(number);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe stats section
+        const statsSection = document.querySelector('.testimonial-stats');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
+        function animateCounter(element) {
+            const target = element.textContent;
+            let numericValue;
+            let suffix = '';
+            
+            if (target.includes('.')) {
+                numericValue = parseFloat(target);
+                suffix = '';
+            } else if (target.includes('+')) {
+                numericValue = parseInt(target.replace('+', ''));
+                suffix = '+';
+            } else if (target.includes('%')) {
+                numericValue = parseInt(target.replace('%', ''));
+                suffix = '%';
+            } else {
+                numericValue = parseInt(target);
+                suffix = '';
+            }
+
+            const duration = 2000;
+            const steps = 60;
+            const increment = numericValue / steps;
+            let current = 0;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= numericValue) {
+                    current = numericValue;
+                    clearInterval(timer);
+                }
+                
+                if (target.includes('.')) {
+                    element.textContent = current.toFixed(1) + suffix;
+                } else {
+                    element.textContent = Math.floor(current) + suffix;
+                }
+            }, duration / steps);
+        }
+        
+        // Enhanced hover effects for stat cards
+        document.querySelectorAll('.stat-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.05)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = '';
+            });
+        });
+        
+        // Parallax effect for background elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const testimonialSection = document.querySelector('.testimonials-section');
+            
+            if (testimonialSection) {
+                const rect = testimonialSection.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+                
+                if (isVisible) {
+                    const speed = scrolled * 0.5;
+                    testimonialSection.style.backgroundPosition = `center ${speed}px`;
+                }
+            }
+        });
+    </script>
