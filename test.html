@@ -3,981 +3,701 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IGHEHRC - Patient Testimonials</title>
-    
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    
+    <title>Patient Testimonials</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-blue: #2563EB;
-            --secondary-blue: #1E40AF;
+            --primary-blue: #4A90E2;
+            --secondary-blue: #2471A3;
             --light-blue: #DBEAFE;
-            --accent-blue: #3B82F6;
-            --lighter-blue: #EFF6FF;
-            --white: #FFFFFF;
-            --dark-text: #1F2937;
-            --gray-text: #6B7280;
-            --border-color: #E5E7EB;
-            --light-bg: #FAFBFC;
+            --accent-blue: #2471A3;
         }
 
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--dark-text);
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            background: var(--white);
-            padding: 6rem 0;
+        .testimonial-section {
+            background: #f8fafc;
+            padding: 80px 0;
             position: relative;
-            overflow: hidden;
-        }
-
-        .testimonials-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.02) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(37, 99, 235, 0.02) 0%, transparent 50%);
-            z-index: 0;
-        }
-
-        .testimonials-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.5"/></pattern></defs><rect width="100" height="20" fill="url(%23grid)"/></svg>');
-            z-index: 0;
-        }
-
-        .testimonials-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Section Header */
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-subtitle {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--primary-blue);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
         }
 
         .section-title {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
+            color: var(--secondary-blue);
             font-weight: 700;
-            color: var(--dark-text);
-            margin-bottom: 1rem;
-            position: relative;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         .section-title::after {
             content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
+            display: block;
             width: 60px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+            background: var(--primary-blue);
+            margin: 15px auto 0;
             border-radius: 2px;
         }
 
-        .section-description {
-            font-size: 1.2rem;
-            color: var(--gray-text);
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.7;
+        .section-subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 400;
         }
 
-        /* Slider Container */
-        .testimonials-slider {
+        .slider-container {
             position: relative;
-            margin: 0 auto;
-            max-width: 1000px;
-        }
-
-        .slider-track {
+            height: 480px;
             display: flex;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-            gap: 2rem;
-        }
-
-        .testimonial-slide {
-            flex: 0 0 100%;
-            display: flex;
-            gap: 2rem;
-            align-items: stretch;
-        }
-
-        /* Main Testimonial Card */
-        .main-testimonial {
-            flex: 2;
-            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
-            border: 1px solid rgba(37, 99, 235, 0.1);
-            border-radius: 24px;
-            padding: 3rem;
-            position: relative;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
         }
 
-        .main-testimonial::before {
-            content: '';
+        .testimonial-track {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+        }
+
+        .testimonial-card {
+            position: relative;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.6s ease;
+            border: 1px solid #e2e8f0;
+            transform-origin: center center;
+        }
+
+        /* Side cards (inactive) */
+        .testimonial-card.inactive {
+            width: 300px;
+            height: 380px;
+            transform: scale(0.9);
+            opacity: 0.7;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Center card (active) */
+        .testimonial-card.active {
+            width: 400px;
+            height: 450px;
+            transform: scale(1);
+            opacity: 1;
+            box-shadow: 0 8px 30px rgba(74, 144, 226, 0.15);
+            z-index: 2;
+        }
+
+        /* Far side cards */
+        .testimonial-card.far {
+            width: 260px;
+            height: 320px;
+            transform: scale(0.8);
+            opacity: 0.4;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 70%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+
+        .video-iframe.active {
+            display: block;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-thumbnail.hidden {
+            display: none;
+        }
+
+        .play-button {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-            border-radius: 24px;
-            z-index: -1;
-        }
-
-        .quote-section {
-            margin-bottom: 2.5rem;
-        }
-
-        .quote-icon {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--white), rgba(255, 255, 255, 0.8));
+            background: rgba(74, 144, 226, 0.9);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid white;
         }
 
-        .quote-icon i {
-            font-size: 1.5rem;
-            color: var(--primary-blue);
+        .play-button:hover {
+            background: var(--secondary-blue);
+            transform: translate(-50%, -50%) scale(1.1);
         }
 
-        .main-quote {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.4rem;
-            line-height: 1.8;
-            color: var(--white);
-            font-style: italic;
-            margin-bottom: 2rem;
-            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+        .play-button i {
+            color: white;
+            font-size: 18px;
+            margin-left: 2px;
         }
 
-        .patient-profile {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .patient-image {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--white), rgba(255, 255, 255, 0.8));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2);
+        .play-button.hidden {
+            display: none;
         }
 
         .patient-info {
-            flex: 1;
+            padding: 20px;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
         }
 
         .patient-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 0.3rem;
-        }
-
-        .patient-treatment {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
             font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .rating-stars {
-            display: flex;
-            gap: 0.3rem;
-        }
-
-        .rating-stars i {
+            color: var(--secondary-blue);
             font-size: 1.1rem;
-            color: #FFD700;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            margin-bottom: 5px;
         }
 
-        /* Side Testimonials */
-        .side-testimonials {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .side-testimonial {
-            background: var(--white);
-            border: 2px solid var(--border-color);
-            border-radius: 16px;
-            padding: 1.5rem;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.05);
-        }
-
-        .side-testimonial:hover {
-            border-color: var(--primary-blue);
-            transform: translateX(5px);
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.1);
-        }
-
-        .side-testimonial.active {
-            background: var(--lighter-blue);
-            border-color: var(--primary-blue);
-            box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
-        }
-
-        .side-quote {
+        .patient-condition {
+            color: var(--primary-blue);
             font-size: 0.9rem;
-            color: var(--gray-text);
-            line-height: 1.6;
-            margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            margin-bottom: 12px;
+            font-weight: 500;
         }
 
-        .side-patient {
+        .rating {
             display: flex;
-            align-items: center;
-            gap: 0.8rem;
-        }
-
-        .side-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--lighter-blue);
-            display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--primary-blue);
+            gap: 3px;
         }
 
-        .side-info {
-            flex: 1;
+        .rating i {
+            color: #fbbf24;
+            font-size: 14px;
         }
 
-        .side-name {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--dark-text);
-            margin-bottom: 0.2rem;
-        }
-
-        .side-treatment {
-            font-size: 0.8rem;
-            color: var(--primary-blue);
-        }
-
-        /* Navigation */
-        .slider-navigation {
+        .slider-controls {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 2rem;
-            margin-top: 3rem;
+            margin-top: 40px;
+            gap: 25px;
         }
 
-        .nav-button {
+        .control-btn {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid var(--primary-blue);
+            background: white;
+            color: var(--primary-blue);
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 16px;
         }
 
-        .nav-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.1);
+        .control-btn:hover {
+            background: var(--primary-blue);
+            color: white;
         }
 
-        .nav-button i {
-            font-size: 1.2rem;
-            color: var(--white);
+        .control-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
 
-        .slider-dots {
+        .dots-indicator {
             display: flex;
-            gap: 0.8rem;
+            gap: 10px;
+            align-items: center;
         }
 
         .dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
+            background: #cbd5e1;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .dot.active {
-            background: var(--white);
+            background: var(--primary-blue);
             transform: scale(1.2);
         }
 
-        /* Stats Section */
-        .testimonial-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 4rem;
-            padding: 2rem 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .close-video {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            z-index: 10;
         }
 
-        .stat-card {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            padding: 2rem 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .stat-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 800;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-            line-height: 1;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .stat-label {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 600;
+        .close-video.active {
+            display: flex;
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .section-title {
-                font-size: 2.8rem;
+        @media (max-width: 1200px) {
+            .testimonial-card.active {
+                width: 350px;
+                height: 400px;
             }
             
-            .testimonial-slide {
-                flex-direction: column;
-                gap: 1.5rem;
+            .testimonial-card.inactive {
+                width: 270px;
+                height: 340px;
             }
             
-            .side-testimonials {
-                flex-direction: row;
-                overflow-x: auto;
-                gap: 1rem;
-            }
-            
-            .side-testimonial {
-                flex: 0 0 250px;
-            }
-            
-            .testimonial-stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
+            .testimonial-card.far {
+                width: 220px;
+                height: 280px;
             }
         }
 
         @media (max-width: 768px) {
-            .testimonials-section {
-                padding: 4rem 0;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .main-testimonial {
-                padding: 2rem;
-            }
-            
-            .main-quote {
-                font-size: 1.1rem;
-            }
-            
-            .side-testimonials {
-                display: none;
-            }
-            
-            .testimonial-stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .stat-card {
-                padding: 1.5rem 1rem;
-            }
-        }
-
-        @media (max-width: 576px) {
             .section-title {
                 font-size: 2rem;
             }
             
-            .main-testimonial {
-                padding: 1.5rem;
+            .slider-container {
+                height: 400px;
             }
             
-            .patient-profile {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-        }
-
-        /* Animations */
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .main-testimonial {
-            animation: slideIn 0.8s ease-out;
-        }
-
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            .slider-track {
-                transition: none;
+            .testimonial-card.active {
+                width: 320px;
+                height: 360px;
             }
             
-            .main-testimonial {
-                animation: none;
+            .testimonial-card.inactive {
+                width: 240px;
+                height: 300px;
             }
+            
+            .testimonial-card.far {
+                display: none;
+            }
+            
+            .testimonial-track {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .testimonial-card.active {
+                width: 290px;
+                height: 340px;
+            }
+            
+            .testimonial-card.inactive {
+                width: 210px;
+                height: 260px;
+            }
+            
+            .testimonial-track {
+                gap: 15px;
+            }
+        }
+
+        /* Loading state */
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+            display: none;
+        }
+
+        .video-loading.active {
+            display: block;
+        }
+
+        /* Smooth iframe transitions */
+        .video-iframe {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-iframe.loaded {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <!-- Patient Testimonials Section -->
-    <section class="testimonials-section" id="testimonials">
-        <div class="testimonials-container">
-            <!-- Section Header -->
-            <div class="section-header">
-                <div class="section-subtitle">Patient Stories</div>
-                <h2 class="section-title">What Our Patients Say</h2>
-                <p class="section-description">
-                    Real experiences from patients who have trusted IGHEHRC with their vision care. 
-                    Discover inspiring stories of restored sight and transformed lives.
-                </p>
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Patient Success Stories</h2>
+                <p class="section-subtitle">Real patients sharing their transformative healthcare experiences</p>
             </div>
 
-            <!-- Testimonials Slider -->
-            <div class="testimonials-slider">
-                <div class="slider-track" id="sliderTrack">
-                    <!-- Slide 1 -->
-                    <div class="testimonial-slide">
-                        <div class="main-testimonial">
-                            <div class="quote-section">
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                                <p class="main-quote">
-                                    "The cataract surgery I had at IGHEHRC was absolutely life-changing. The doctors were incredibly skilled and the entire team made me feel comfortable throughout the process. My vision is clearer than it's been in years!"
-                                </p>
+            <div class="slider-container">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card inactive" data-index="0">
+                        <div class="video-container">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=400&fit=crop&auto=format" alt="Sarah's Recovery" class="video-thumbnail">
+                            <iframe class="video-iframe" data-src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1" allowfullscreen></iframe>
+                            <div class="play-button" onclick="playVideo(0)">
+                                <i class="fas fa-play"></i>
                             </div>
-                            <div class="patient-profile">
-                                <div class="patient-image">RS</div>
-                                <div class="patient-info">
-                                    <div class="patient-name">Rajesh Sharma</div>
-                                    <div class="patient-treatment">Cataract Surgery Patient</div>
-                                    <div class="rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
+                            <button class="close-video" onclick="stopVideo(0)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="video-loading">Loading...</div>
                         </div>
-                        <div class="side-testimonials">
-                            <div class="side-testimonial active" data-slide="0">
-                                <p class="side-quote">"Amazing LASIK experience. Perfect vision now!"</p>
-                                <div class="side-patient">
-                                    <div class="side-avatar">AK</div>
-                                    <div class="side-info">
-                                        <div class="side-name">Amit Kumar</div>
-                                        <div class="side-treatment">LASIK Surgery</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="side-testimonial" data-slide="1">
-                                <p class="side-quote">"Excellent pediatric care for my daughter's treatment."</p>
-                                <div class="side-patient">
-                                    <div class="side-avatar">SG</div>
-                                    <div class="side-info">
-                                        <div class="side-name">Sunita Gupta</div>
-                                        <div class="side-treatment">Pediatric Care</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="side-testimonial" data-slide="2">
-                                <p class="side-quote">"World-class corneal transplant. Highly recommend!"</p>
-                                <div class="side-patient">
-                                    <div class="side-avatar">JA</div>
-                                    <div class="side-info">
-                                        <div class="side-name">John Anderson</div>
-                                        <div class="side-treatment">Corneal Transplant</div>
-                                    </div>
-                                </div>
+                        <div class="patient-info">
+                            <div class="patient-name">Sarah Johnson</div>
+                            <div class="patient-condition">Cardiac Surgery Recovery</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 2 -->
-                    <div class="testimonial-slide">
-                        <div class="main-testimonial">
-                            <div class="quote-section">
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                                <p class="main-quote">
-                                    "My LASIK surgery exceeded all expectations. The technology they use is amazing and the results are perfect. I wish I had done this years ago. Highly recommend IGHEHRC to anyone considering vision correction."
-                                </p>
+                    <!-- Testimonial 2 (Active) -->
+                    <div class="testimonial-card active" data-index="1">
+                        <div class="video-container">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&h=400&fit=crop&auto=format" alt="Michael's Journey" class="video-thumbnail">
+                            <iframe class="video-iframe" data-src="https://www.youtube.com/embed/jNQXAC9IVRw?autoplay=1&mute=1" allowfullscreen></iframe>
+                            <div class="play-button" onclick="playVideo(1)">
+                                <i class="fas fa-play"></i>
                             </div>
-                            <div class="patient-profile">
-                                <div class="patient-image">AK</div>
-                                <div class="patient-info">
-                                    <div class="patient-name">Amit Kumar</div>
-                                    <div class="patient-treatment">LASIK Surgery Patient</div>
-                                    <div class="rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
+                            <button class="close-video" onclick="stopVideo(1)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="video-loading">Loading...</div>
                         </div>
-                        <div class="side-testimonials">
-                            <div class="side-testimonial" data-slide="0">
-                                <p class="side-quote">"Life-changing cataract surgery experience."</p>
-                                <div class="side-patient">
-                                    <div class="side-avatar">RS</div>
-                                    <div class="side-info">
-                                        <div class="side-name">Rajesh Sharma</div>
-                                        <div class="side-treatment">Cataract Surgery</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="side-testimonial active" data-slide="1">
-                                <p class="side-quote">"Excellent pediatric care for my daughter's treatment."</p>
-                                <div class="side-patient">
-                                    <div class="side-avatar">SG</div>
-                                    <div class="side-info">
-                                        <div class="side-name">Sunita Gupta</div>
-                                        <div class="side-treatment">Pediatric Care</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="side-testimonial" data-slide="2">
-                                <p class="side-quote">"World-class corneal transplant. Highly recommend!"</p>
-                                <div class="side-patient">
-                                    <div class="side-avatar">JA</div>
-                                    <div class="side-info">
-                                        <div class="side-name">John Anderson</div>
-                                        <div class="side-treatment">Corneal Transplant</div>
-                                    </div>
-                                </div>
+                        <div class="patient-info">
+                            <div class="patient-name">Michael Chen</div>
+                            <div class="patient-condition">Orthopedic Treatment</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 3 -->
-                    <div class="testimonial-slide">
-                        <div class="main-testimonial">
-                            <div class="quote-section">
-                                <div class="quote-icon">
-                                    <i class="fas fa-quote-left"></i>
-                                </div>
-                                <p class="main-quote">
-                                    "The pediatric eye care team was wonderful with my daughter. They made her feel at ease and the treatment for her squint was successful. We're so thankful for the caring approach and excellent results."
-                                </p>
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card inactive" data-index="2">
+                        <div class="video-container">
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop&auto=format" alt="Emily's Story" class="video-thumbnail">
+                            <iframe class="video-iframe" data-src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&mute=1" allowfullscreen></iframe>
+                            <div class="play-button" onclick="playVideo(2)">
+                                <i class="fas fa-play"></i>
                             </div>
-                            <div class="patient-profile">
-                                <div class="patient-image">SG</div>
-                                <div class="patient-info">
-                                    <div class="patient-name">Sunita Gupta</div>
-                                    <div class="patient-treatment">Pediatric Care Patient</div>
-                                    <div class="rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
+                            <button class="close-video" onclick="stopVideo(2)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="video-loading">Loading...</div>
                         </div>
-                        <div class="side-testimonials">
-                            <div class="side-testimonial" data-slide="0">
-                                <p class="side-quote">"Life-changing cataract surgery experience."</p>
-                                <div class="side-patient">
-                                    <div class="side-avatar">RS</div>
-                                    <div class="side-info">
-                                        <div class="side-name">Rajesh Sharma</div>
-                                        <div class="side-treatment">Cataract Surgery</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="side-testimonial" data-slide="1">
-                                <p class="side-quote">"Amazing LASIK experience. Perfect vision now!"</p>
-                                <div class="side-patient">
-                                    <div class="side-avatar">AK</div>
-                                    <div class="side-info">
-                                        <div class="side-name">Amit Kumar</div>
-                                        <div class="side-treatment">LASIK Surgery</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="side-testimonial active" data-slide="2">
-                                <p class="side-quote">"World-class corneal transplant. Highly recommend!"</p>
-                                <div class="side-patient">
-                                    <div class="side-avatar">JA</div>
-                                    <div class="side-info">
-                                        <div class="side-name">John Anderson</div>
-                                        <div class="side-treatment">Corneal Transplant</div>
-                                    </div>
-                                </div>
+                        <div class="patient-info">
+                            <div class="patient-name">Emily Rodriguez</div>
+                            <div class="patient-condition">Cancer Treatment</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Navigation -->
-                <div class="slider-navigation">
-                    <button class="nav-button" id="prevBtn">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
-                    <div class="slider-dots" id="sliderDots">
-                        <div class="dot active" data-slide="0"></div>
-                        <div class="dot" data-slide="1"></div>
-                        <div class="dot" data-slide="2"></div>
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card far" data-index="3">
+                        <div class="video-container">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&auto=format" alt="David's Progress" class="video-thumbnail">
+                            <iframe class="video-iframe" data-src="https://www.youtube.com/embed/kJQP7kiw5Fk?autoplay=1&mute=1" allowfullscreen></iframe>
+                            <div class="play-button" onclick="playVideo(3)">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <button class="close-video" onclick="stopVideo(3)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="video-loading">Loading...</div>
+                        </div>
+                        <div class="patient-info">
+                            <div class="patient-name">David Thompson</div>
+                            <div class="patient-condition">Diabetes Management</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
                     </div>
-                    <button class="nav-button" id="nextBtn">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
+
+                    <!-- Testimonial 5 -->
+                    <div class="testimonial-card far" data-index="4">
+                        <div class="video-container">
+                            <img src="https://images.unsplash.com/photo-1594824862516-c8463039dd50?w=600&h=400&fit=crop&auto=format" alt="Lisa's Recovery" class="video-thumbnail">
+                            <iframe class="video-iframe" data-src="https://www.youtube.com/embed/L_jWHffIx5E?autoplay=1&mute=1" allowfullscreen></iframe>
+                            <div class="play-button" onclick="playVideo(4)">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <button class="close-video" onclick="stopVideo(4)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="video-loading">Loading...</div>
+                        </div>
+                        <div class="patient-info">
+                            <div class="patient-name">Lisa Wang</div>
+                            <div class="patient-condition">Physical Therapy</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Testimonial Stats -->
-            <div class="testimonial-stats">
-                <div class="stat-card">
-                    <div class="stat-number">4.9</div>
-                    <div class="stat-label">Average Rating</div>
+            <div class="slider-controls">
+                <button class="control-btn" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="dots-indicator">
+                    <div class="dot" onclick="goToSlide(0)"></div>
+                    <div class="dot active" onclick="goToSlide(1)"></div>
+                    <div class="dot" onclick="goToSlide(2)"></div>
+                    <div class="dot" onclick="goToSlide(3)"></div>
+                    <div class="dot" onclick="goToSlide(4)"></div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-number">2500+</div>
-                    <div class="stat-label">Happy Patients</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">98%</div>
-                    <div class="stat-label">Satisfaction Rate</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">15+</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
+                
+                <button class="control-btn" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
-    
     <script>
-        class TestimonialSlider {
-            constructor() {
-                this.currentSlide = 0;
-                this.totalSlides = 3;
-                this.sliderTrack = document.getElementById('sliderTrack');
-                this.dots = document.querySelectorAll('.dot');
-                this.prevBtn = document.getElementById('prevBtn');
-                this.nextBtn = document.getElementById('nextBtn');
-                this.sideTestimonials = document.querySelectorAll('.side-testimonial');
-                
-                this.init();
-            }
-            
-            init() {
-                // Navigation event listeners
-                this.prevBtn.addEventListener('click', () => this.prevSlide());
-                this.nextBtn.addEventListener('click', () => this.nextSlide());
-                
-                // Dot navigation
-                this.dots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => this.goToSlide(index));
-                });
-                
-                // Side testimonial clicks
-                this.sideTestimonials.forEach(testimonial => {
-                    testimonial.addEventListener('click', (e) => {
-                        const slideIndex = parseInt(e.currentTarget.dataset.slide);
-                        this.goToSlide(slideIndex);
-                    });
-                });
-                
-                // Auto-play
-                this.startAutoPlay();
-                
-                // Pause on hover
-                this.sliderTrack.addEventListener('mouseenter', () => this.stopAutoPlay());
-                this.sliderTrack.addEventListener('mouseleave', () => this.startAutoPlay());
-                
-                // Keyboard navigation
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowLeft') this.prevSlide();
-                    if (e.key === 'ArrowRight') this.nextSlide();
-                });
-                
-                // Touch/swipe support
-                this.addTouchSupport();
-            }
-            
-            goToSlide(index) {
-                this.currentSlide = index;
-                this.updateSlider();
-                this.updateDots();
-                this.animateSlide();
-            }
-            
-            nextSlide() {
-                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                this.goToSlide(this.currentSlide);
-            }
-            
-            prevSlide() {
-                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                this.goToSlide(this.currentSlide);
-            }
-            
-            updateSlider() {
-                const translateX = -this.currentSlide * 100;
-                this.sliderTrack.style.transform = `translateX(${translateX}%)`;
-            }
-            
-            updateDots() {
-                this.dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === this.currentSlide);
-                });
-            }
-            
-            animateSlide() {
-                // Add slide animation class
-                const currentSlideElement = document.querySelectorAll('.testimonial-slide')[this.currentSlide];
-                const mainTestimonial = currentSlideElement.querySelector('.main-testimonial');
-                
-                // Reset animation
-                mainTestimonial.style.animation = 'none';
-                mainTestimonial.offsetHeight; // Trigger reflow
-                mainTestimonial.style.animation = 'slideIn 0.8s ease-out';
-            }
-            
-            startAutoPlay() {
-                this.autoPlayInterval = setInterval(() => {
-                    this.nextSlide();
-                }, 6000);
-            }
-            
-            stopAutoPlay() {
-                if (this.autoPlayInterval) {
-                    clearInterval(this.autoPlayInterval);
-                }
-            }
-            
-            addTouchSupport() {
-                let startX = 0;
-                let startY = 0;
-                let endX = 0;
-                let endY = 0;
-                
-                this.sliderTrack.addEventListener('touchstart', (e) => {
-                    startX = e.touches[0].clientX;
-                    startY = e.touches[0].clientY;
-                });
-                
-                this.sliderTrack.addEventListener('touchend', (e) => {
-                    endX = e.changedTouches[0].clientX;
-                    endY = e.changedTouches[0].clientY;
-                    
-                    const deltaX = endX - startX;
-                    const deltaY = endY - startY;
-                    
-                    // Only trigger swipe if horizontal movement is greater than vertical
-                    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-                        if (deltaX > 0) {
-                            this.prevSlide();
-                        } else {
-                            this.nextSlide();
-                        }
-                    }
-                });
-            }
-        }
-        
-        // Initialize slider when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            new TestimonialSlider();
-        });
-        
-        // Counter animation for stats
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('.stat-number');
-                    statNumbers.forEach(number => {
-                        animateCounter(number);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
+        let currentSlide = 1; // Start with middle card active
+        const totalSlides = 5;
+        const cards = document.querySelectorAll('.testimonial-card');
+        const dots = document.querySelectorAll('.dot');
+        let isTransitioning = false;
+        let activeVideo = null;
 
-        // Observe stats section
-        const statsSection = document.querySelector('.testimonial-stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
+        function updateSlider() {
+            if (isTransitioning) return;
+            isTransitioning = true;
 
-        function animateCounter(element) {
-            const target = element.textContent;
-            let numericValue;
-            let suffix = '';
-            
-            if (target.includes('.')) {
-                numericValue = parseFloat(target);
-                suffix = '';
-            } else if (target.includes('+')) {
-                numericValue = parseInt(target.replace('+', ''));
-                suffix = '+';
-            } else if (target.includes('%')) {
-                numericValue = parseInt(target.replace('%', ''));
-                suffix = '%';
-            } else {
-                numericValue = parseInt(target);
-                suffix = '';
-            }
-
-            const duration = 2000;
-            const steps = 60;
-            const increment = numericValue / steps;
-            let current = 0;
-            
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= numericValue) {
-                    current = numericValue;
-                    clearInterval(timer);
-                }
+            cards.forEach((card, index) => {
+                card.classList.remove('active', 'inactive', 'far');
                 
-                if (target.includes('.')) {
-                    element.textContent = current.toFixed(1) + suffix;
+                if (index === currentSlide) {
+                    card.classList.add('active');
+                } else if (Math.abs(index - currentSlide) === 1) {
+                    card.classList.add('inactive');
                 } else {
-                    element.textContent = Math.floor(current) + suffix;
+                    card.classList.add('far');
                 }
-            }, duration / steps);
+            });
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+
+            setTimeout(() => {
+                isTransitioning = false;
+            }, 600);
         }
-        
-        // Enhanced hover effects for stat cards
-        document.querySelectorAll('.stat-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.05)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = '';
-            });
-        });
-        
-        // Parallax effect for background elements
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const testimonialSection = document.querySelector('.testimonials-section');
-            
-            if (testimonialSection) {
-                const rect = testimonialSection.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-                
-                if (isVisible) {
-                    const speed = scrolled * 0.5;
-                    testimonialSection.style.backgroundPosition = `center ${speed}px`;
-                }
+
+        function nextSlide() {
+            if (isTransitioning) return;
+            // Stop any playing video when changing slides
+            if (activeVideo !== null) {
+                stopVideo(activeVideo);
             }
+            currentSlide = (currentSlide + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function previousSlide() {
+            if (isTransitioning) return;
+            // Stop any playing video when changing slides
+            if (activeVideo !== null) {
+                stopVideo(activeVideo);
+            }
+            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function goToSlide(index) {
+            if (isTransitioning || index === currentSlide) return;
+            // Stop any playing video when changing slides
+            if (activeVideo !== null) {
+                stopVideo(activeVideo);
+            }
+            currentSlide = index;
+            updateSlider();
+        }
+
+        function playVideo(index) {
+            // Make sure this card is the active one first
+            if (currentSlide !== index) {
+                currentSlide = index;
+                updateSlider();
+                // Wait for transition to complete before playing video
+                setTimeout(() => {
+                    startVideo(index);
+                }, 600);
+            } else {
+                startVideo(index);
+            }
+        }
+
+        function startVideo(index) {
+            // Stop any currently playing video
+            if (activeVideo !== null && activeVideo !== index) {
+                stopVideo(activeVideo);
+            }
+
+            const card = cards[index];
+            const thumbnail = card.querySelector('.video-thumbnail');
+            const iframe = card.querySelector('.video-iframe');
+            const playButton = card.querySelector('.play-button');
+            const closeButton = card.querySelector('.close-video');
+            const loading = card.querySelector('.video-loading');
+
+            // Show loading state
+            loading.classList.add('active');
+            playButton.classList.add('hidden');
+
+            // Load the iframe src if not already loaded
+            if (!iframe.src) {
+                iframe.src = iframe.dataset.src;
+            }
+
+            // Wait for iframe to load
+            iframe.onload = function() {
+                loading.classList.remove('active');
+                thumbnail.classList.add('hidden');
+                iframe.classList.add('active', 'loaded');
+                closeButton.classList.add('active');
+                activeVideo = index;
+            };
+
+            // Fallback in case onload doesn't fire
+            setTimeout(() => {
+                if (loading.classList.contains('active')) {
+                    loading.classList.remove('active');
+                    thumbnail.classList.add('hidden');
+                    iframe.classList.add('active', 'loaded');
+                    closeButton.classList.add('active');
+                    activeVideo = index;
+                }
+            }, 2000);
+        }
+
+        function stopVideo(index) {
+            const card = cards[index];
+            const thumbnail = card.querySelector('.video-thumbnail');
+            const iframe = card.querySelector('.video-iframe');
+            const playButton = card.querySelector('.play-button');
+            const closeButton = card.querySelector('.close-video');
+            const loading = card.querySelector('.video-loading');
+
+            // Reset iframe to stop video
+            iframe.src = '';
+            iframe.classList.remove('active', 'loaded');
+            
+            // Show thumbnail again
+            thumbnail.classList.remove('hidden');
+            playButton.classList.remove('hidden');
+            closeButton.classList.remove('active');
+            loading.classList.remove('active');
+
+            if (activeVideo === index) {
+                activeVideo = null;
+            }
+        }
+
+        // Auto-advance slider every 6 seconds (when no video is playing)
+        setInterval(() => {
+            if (activeVideo === null && !isTransitioning) {
+                nextSlide();
+            }
+        }, 6000);
+
+        // Click on card to make it active
+        cards.forEach((card, index) => {
+            card.addEventListener('click', (e) => {
+                if (!e.target.closest('.play-button') && 
+                    !e.target.closest('.close-video') && 
+                    index !== currentSlide) {
+                    goToSlide(index);
+                }
+            });
         });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') previousSlide();
+            if (e.key === 'Escape' && activeVideo !== null) stopVideo(activeVideo);
+        });
+
+        // Initialize
+        updateSlider();
     </script>
+</body>
+</html>  9

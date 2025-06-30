@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Website</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CEO Promise Section - Enhanced */
+        .ceo-promise {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9f5ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ceo-promise:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/soft-circle-scales.png');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .ceo-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            height: 250px;
+            display: flex;
+            align-items: stretch;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            border-left: 5px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .ceo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+        }
+        
+        .ceo-image {
+            height: 100%;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            flex: 0 0 calc(100% - 75%);
+            min-width: calc(100% - 75%);
+        }
+        
+        .ceo-image:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(13, 110, 253, 0.2) 0%, transparent 100%);
+            z-index: 1;
+        }
+        
+        .ceo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .ceo-card:hover .ceo-image img {
+            transform: scale(1.03);
+        }
+        
+        .ceo-content {
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 0 0 75%;
+            max-width: 75%;
+        }
+        
+        .ceo-quote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            position: relative;
+            font-weight: 400;
+            font-style: italic;
+        }
+        
+        .ceo-quote:before {
+            content: "";
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            position: absolute;
+            left: -15px;
+            top: -30px;
+            line-height: 1;
+        }
+        
+        .ceo-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .ceo-title {
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .ceo-signature {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-family: 'Brush Script MT', cursive;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .ceo-icon {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            opacity: 0.1;
+        }
+        
+        @media (max-width: 991.98px) {
+            .ceo-card {
+                height: auto;
+                flex-direction: column;
+            }
+            
+            .ceo-image {
+                height: 200px;
+                flex: 0 0 100%;
+                min-width: 100%;
+            }
+            
+            .ceo-content {
+                padding: 30px;
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .ceo-quote:before {
+                font-size: 4rem;
+                top: -20px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .ceo-content {
+                padding: 25px;
+            }
+            
+            .ceo-quote {
+                font-size: 1rem;
+            }
+            
+            .ceo-signature {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                margin-top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Previous HTML content (navbar and hero banner) remains the same -->
+    
+    <!-- Enhanced CEO's Promise Section -->
+    <section class="ceo-promise">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="ceo-card">
+                        <div class="ceo-image">
+                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Dr. Sanjay Dhawan">
+                        </div>
+                        <div class="ceo-content">
+                            <i class="fas fa-quote-right ceo-icon"></i>
+                            <blockquote class="ceo-quote">
+                                We are committed to an ethical and compassionate approach to eye care. Besides delivering high-quality eye care at affordable cost, we give quality time and personalized care to every patient.
+                            </blockquote>
+                            <div>
+                                <h4 class="ceo-name">Dr. Sanjay Dhawan</h4>
+                                <p class="ceo-title">CEO & Director of Medical Services</p>
+                            </div>
+                            <div class="ceo-signature">Sanjay Dhawan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Previous JavaScript remains the same
+    </script>
+</body>
+</html>

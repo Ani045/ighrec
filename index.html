@@ -15,6 +15,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  
+                    
+            
     
     <style>
         :root {
@@ -44,6 +47,91 @@
             color: var(--dark-text);
             background-color: var(--white);
         }
+       
+/* Topbar Carousel Styles - No Overlap Fix */
+.ighehrc-topbar {
+    background: linear-gradient(135deg, #93c5fd, #60a5fa);
+    color: white;
+    padding: 8px 0;
+    position: relative;
+    z-index: 100;
+    font-size: 14px;
+    overflow: hidden;
+    width: 100%;
+    display: block;
+    margin: 0;
+}
+
+/* Ensure no margin/padding issues */
+.ighehrc-topbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.ighehrc-location-carousel {
+    position: relative;
+    overflow: hidden;
+    height: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.ighehrc-carousel-track {
+    display: flex;
+    animation: ighehrc-slide 20s infinite linear;
+    white-space: nowrap;
+}
+
+.ighehrc-location-item {
+    display: inline-flex;
+    align-items: center;
+    margin-right: 60px;
+    white-space: nowrap;
+    color: #000;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    padding: 5px 10px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.ighehrc-location-item:hover {
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.ighehrc-location-icon {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.ighehrc-location-text {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ighehrc-location-carousel:hover .ighehrc-carousel-track {
+    animation-play-state: paused;
+}
+
+@keyframes ighehrc-slide {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+@media (max-width: 768px) {
+    .ighehrc-topbar { padding: 6px 0; font-size: 12px; }
+    .ighehrc-location-carousel { height: 25px; }
+    .ighehrc-location-item { margin-right: 40px; padding: 3px 8px; }
+    .ighehrc-location-icon { font-size: 14px; margin-right: 6px; }
+    .ighehrc-location-text { font-size: 11px; }
+}
+
+
 
         .navbar {
             background: var(--white);
@@ -500,313 +588,7 @@
             outline-offset: 2px;
         }
 
-          /* Locations Banner Section */
-          .locations-banner {
-            /* background: linear-gradient(135deg, var(--lighter-blue) 0%, var(--white) 100%); */
-            padding: 2rem 0 3rem 0;
-            /* border-bottom: 1px solid var(--border-color); */ */
-        }
-
-        .locations-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .locations-header h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .locations-header p {
-            font-size: 1.1rem;
-            color: var(--gray-text);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .locations-container {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1rem;
-        }
-
-        .location-item {
-            /* background: var(--white); */
-            /* border-radius: 16px; */
-            padding: 1.2rem 0.7rem;
-            text-align: center;
-            /* box-shadow: 0 8px 25px rgba(37, 99, 235, 0.08); */
-            /* transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); */
-            /* border: 2px solid transparent; */
-            position: relative;
-            overflow: hidden;
-            min-width: 180px;
-            /* flex: 1; */
-            max-width: 200px;
-        }
-
-        .location-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .location-item:hover::before {
-            transform: scaleX(1);
-        }
-
-        .location-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
-            border-color: var(--light-blue);
-        }
-
-        .location-image {
-            width: 120px;
-            height: 80px;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 12px;
-            margin: 0 auto 1.2rem auto;
-            transition: all 0.3s ease;
-            border: 2px solid var(--border-color);
-        }
-
-        .location-item:hover .location-image {
-            transform: scale(1.05);
-            border-color: var(--primary-blue);
-        }
-
-        /* Individual location images */
-        .mumbai-img { 
-            background-image: url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
-        }
-        .delhi-img { 
-            background-image: url('https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
-        }
-        .bangalore-img { 
-            background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
-        }
-        .chennai-img { 
-            background-image: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
-        }
-        .hyderabad-img { 
-            background-image: url('https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
-        }
-        .pune-img { 
-            background-image: url('https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80');
-        }
-
-        .location-code {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-blue);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-        }
-
-        .location-item:hover .location-code {
-            color: var(--secondary-blue);
-        }
-
-        .location-city {
-            font-size: 0.9rem;
-            color: var(--gray-text);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .location-item:hover .location-city {
-            color: var(--dark-text);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 1200px) {
-            .locations-container {
-                gap: 1rem;
-            }
-            
-            .location-item {
-                min-width: 160px;
-                max-width: 180px;
-                padding: 1.3rem 0.8rem;
-            }
-            
-            .location-image {
-                width: 100px;
-                height: 70px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .locations-banner {
-                padding: 3rem 0 2.5rem 0;
-            }
-            
-            .locations-header h2 {
-                font-size: 2.2rem;
-            }
-            
-            .locations-container {
-                gap: 0.8rem;
-            }
-            
-            .location-item {
-                min-width: 130px;
-                max-width: 160px;
-                padding: 1.2rem 0.6rem;
-            }
-            
-            .location-image {
-                width: 90px;
-                height: 60px;
-            }
-            
-            .location-code {
-                font-size: 1rem;
-            }
-            
-            .location-city {
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .locations-banner {
-                padding: 2.5rem 0 2rem 0;
-            }
-            
-            .locations-header {
-                margin-bottom: 2rem;
-            }
-            
-            .locations-header h2 {
-                font-size: 2rem;
-            }
-            
-            .locations-header p {
-                font-size: 1rem;
-            }
-            
-            .locations-container {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 1rem;
-                max-width: 600px;
-            }
-            
-            .location-item {
-                min-width: unset;
-                max-width: unset;
-                padding: 1.5rem 1rem;
-            }
-            
-            .location-image {
-                width: 100px;
-                height: 70px;
-                margin-bottom: 1rem;
-            }
-            
-            .location-code {
-                font-size: 1rem;
-            }
-            
-            .location-city {
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .locations-banner {
-                padding: 2rem 0 1.5rem 0;
-            }
-            
-            .locations-header h2 {
-                font-size: 1.8rem;
-            }
-            
-            .locations-container {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 0.8rem;
-                padding: 0 0.5rem;
-            }
-            
-            .location-item {
-                padding: 1.2rem 0.6rem;
-                border-radius: 12px;
-            }
-            
-            .location-image {
-                width: 80px;
-                height: 55px;
-                margin-bottom: 0.8rem;
-            }
-            
-            .location-code {
-                font-size: 0.9rem;
-                margin-bottom: 0.3rem;
-            }
-            
-            .location-city {
-                font-size: 0.75rem;
-            }
-        }
-
-        /* Additional Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .location-item {
-            animation: fadeInUp 0.6s ease-out;
-        }
-
-        .location-item:nth-child(1) { animation-delay: 0.1s; }
-        .location-item:nth-child(2) { animation-delay: 0.2s; }
-        .location-item:nth-child(3) { animation-delay: 0.3s; }
-        .location-item:nth-child(4) { animation-delay: 0.4s; }
-        .location-item:nth-child(5) { animation-delay: 0.5s; }
-        .location-item:nth-child(6) { animation-delay: 0.6s; }
-
-        /* Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            .location-item {
-                animation: none;
-                transition: none;
-            }
-            
-            .location-item:hover {
-                transform: none;
-            }
-        }
-
-        /* Focus styles for keyboard navigation */
-        .location-item:focus {
-            outline: 3px solid var(--accent-blue);
-            outline-offset: 2px;
-        }
+       
         .about-section {
             padding: 2rem 0;
             background: -webkit-linear-gradient(75deg, #d9f6f4, #fdebe0 100%);
@@ -1509,7 +1291,7 @@
             color: var(--gray-text);
             margin-bottom: 1.5rem;
             display: -webkit-box;
-            -webkit-line-clamp: 3;
+            /* -webkit-line-clamp: 3; */
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -2221,6 +2003,7 @@
             .btn-profile {
                 width: 100%;
             }
+          
         }
         footer {
             background: #1F2937;
@@ -2662,25 +2445,374 @@
                 font-size: 1rem;
             }
         }
-    </style>
+        @media (max-width: 576px) {
+            .logo-img{
+                width: 250px;
+            }
+        }
 
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 991.98px) {
+            .navbar-brand .logo-img {
+                max-width: 180px;
+            }
+            
+            .navbar-collapse {
+                background-color: #ffffff;
+                margin-top: 1rem;
+                padding: 1rem 0;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+            
+            .navbar-nav {
+                width: 100%;
+            }
+            
+            .nav-item {
+                margin: 0.25rem 0;
+            }
+            
+            .dropdown-menu {
+                border: none;
+                box-shadow: none;
+                background-color: #f8f9fa;
+                margin: 0.5rem 0 0 1rem;
+                border-radius: 8px;
+                position: static !important;
+                transform: none !important;
+                width: calc(100% - 1rem);
+            }
+            
+            .dropdown-item {
+                padding: 0.75rem 1rem;
+                border-bottom: 1px solid #dee2e6;
+                font-size: 0.9rem;
+            }
+            
+            .dropdown-item:last-child {
+                border-bottom: none;
+            }
+            
+            .dropdown-item:hover {
+                padding-left: 1.5rem;
+            }
+            
+            .btn-appointment {
+                width: 100%;
+                justify-content: center;
+                margin: 1rem 0 0.5rem 0;
+                padding: 12px 20px;
+            }
+            
+            .navbar-nav-wrapper {
+                width: 100%;
+            }
+        }
+        
+        /* Smooth transitions */
+        .collapsing {
+            transition: height 0.35s ease;
+        }
+        
+        .dropdown-menu {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        
+        .dropdown-menu.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Fix for dropdown positioning on desktop */
+        @media (min-width: 992px) {
+            .dropdown:hover .dropdown-menu {
+                display: block;
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .dropdown-menu {
+                opacity: 0;
+                transform: translateY(-10px);
+                display: block;
+                visibility: hidden;
+            }
+            
+            .dropdown-menu.show {
+                visibility: visible;
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (min-width: 992px) and (max-width: 1199.98px) {
+            .btn-appointment{
+                display: none;
+            }
+        }
+         /* Previous CSS styles remain the same */
+        
+         /* CEO Promise Section - Enhanced */
+         .ceo-promise {
+            padding: 20px 0;
+            /* background: linear-gradient(135deg, #f8f9fa 0%, #e9f5ff 100%); */
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ceo-promise:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/soft-circle-scales.png');
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .ceo-card {
+            /* background: white; */
+            /* border-radius: 15px; */
+            /* box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08); */
+            overflow: hidden;
+            height: 200px;
+            display: flex;
+            align-items: stretch;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            /* border-left: 5px solid var(--primary-color); */
+            position: relative;
+        }
+        
+        .ceo-card:hover {
+            transform: translateY(-5px);
+            /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12); */
+        }
+        
+        .ceo-image {
+            height: 100%;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            flex: 0 0 calc(100% - 75%);
+            min-width: calc(100% - 75%);
+        }
+        
+        .ceo-image:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(13, 110, 253, 0.2) 0%, transparent 100%);
+            z-index: 1;
+        }
+        
+        .ceo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.5s ease;
+        }
+        
+        .ceo-card:hover .ceo-image img {
+            transform: scale(1.03);
+        }
+        
+        .ceo-content {
+            padding: 30px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            flex: 0 0 75%;
+            max-width: 75%;
+        }
+        
+        .ceo-quote {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            position: relative;
+            font-weight: 400;
+            font-style: italic;
+        }
+        
+        .ceo-quote:before {
+            content: "";
+            font-family: Georgia, serif;
+            font-size: 5rem;
+            color: var(--primary-color);
+            opacity: 0.1;
+            position: absolute;
+            left: -15px;
+            top: -30px;
+            line-height: 1;
+        }
+        
+        .ceo-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .ceo-title {
+            color: var(--secondary-color);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        
+        .ceo-signature {
+            position: absolute;
+            right: 40px;
+            bottom: 30px;
+            font-family: 'Brush Script MT', cursive;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            opacity: 0.8;
+        }
+        
+        .ceo-icon {
+            position: absolute;
+            right: 30px;
+            top: 30px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            opacity: 0.1;
+        }
+        
+        @media (max-width: 991.98px) {
+            .ceo-card {
+                height: auto;
+                flex-direction: column;
+            }
+            
+            .ceo-image {
+                height: 200px;
+                flex: 0 0 100%;
+                min-width: 100%;
+            }
+            
+            .ceo-content {
+                padding: 30px;
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            
+            .ceo-quote:before {
+                font-size: 4rem;
+                top: -20px;
+            }
+        }
+        
+        @media (max-width: 575.98px) {
+            .ceo-content {
+                padding: 25px;
+            }
+            
+            .ceo-quote {
+                font-size: 1rem;
+            }
+            
+            .ceo-signature {
+                position: relative;
+                right: auto;
+                bottom: auto;
+                margin-top: 15px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Enhanced Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top" role="navigation" aria-label="Main navigation">
+
+    <!-- Location Topbar -->
+
+    <div class="ighehrc-topbar">
+        <div class="ighehrc-topbar-container">
+            <div class="ighehrc-location-carousel">
+                <div class="ighehrc-carousel-track">
+                    <!-- First set of locations -->
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-map-marker-alt ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Gurugram</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-hospital ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Amethi</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-building ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Sohna</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-city ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Lucknow</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-clinic-medical ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Raebareli</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-hospital-user ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Fursatganj</span>
+                    </a>
+                    
+                    <!-- Duplicate set for seamless loop -->
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-map-marker-alt ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Gurugram</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-hospital ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Amethi</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-building ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Sohna</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-city ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Lucknow</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-clinic-medical ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Raebareli</span>
+                    </a>
+                    <a href="#" class="ighehrc-location-item">
+                        <i class="fas fa-hospital-user ighehrc-location-icon"></i>
+                        <span class="ighehrc-location-text">Fursatganj</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light " role="navigation" aria-label="Main navigation">
         <div class="container">
             <a class="navbar-brand" href="#home" aria-label="IGHEHRC Homepage">
-                <img width="300px" src="assets/IGEHRC-new-logo.webp">
+                <img class="logo-img" width="300px" src="assets/IGEHRC-new-logo.webp" alt="IGEHRC Logo">
             </a>
             
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation menu">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation menu" id="navbarToggler">
+                <span id="hamburgerIcon" style="font-size: 20px; font-weight: bold;">☰</span>
             </button>
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <div class="navbar-nav-wrapper">
-                    <ul class="navbar-nav">
+                    <ul class="navbar-nav me-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="#home">Home</a>
                         </li>
@@ -2688,10 +2820,11 @@
                             <a class="nav-link" href="#about">About Us</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                               aria-expanded="false" id="hospitalsDropdown">
                                 Hospitals
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" aria-labelledby="hospitalsDropdown">
                                 <li><a class="dropdown-item" href="#location1"><i class="fas fa-map-marker-alt"></i>Mumbai Central</a></li>
                                 <li><a class="dropdown-item" href="#location2"><i class="fas fa-map-marker-alt"></i>Delhi NCR</a></li>
                                 <li><a class="dropdown-item" href="#location3"><i class="fas fa-map-marker-alt"></i>Bangalore</a></li>
@@ -2704,10 +2837,11 @@
                             <a class="nav-link" href="#doctors">Doctors</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                               aria-expanded="false" id="specialitiesDropdown">
                                 Specialities
                             </a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" aria-labelledby="specialitiesDropdown">
                                 <li><a class="dropdown-item" href="#cataract"><i class="fas fa-eye"></i>Cataract Surgery</a></li>
                                 <li><a class="dropdown-item" href="#retina"><i class="fas fa-eye"></i>Retinal Care</a></li>
                                 <li><a class="dropdown-item" href="#glaucoma"><i class="fas fa-eye"></i>Glaucoma Treatment</a></li>
@@ -2736,7 +2870,7 @@
     </nav>
 
     <!-- Hero Carousel with Responsive Images -->
-    <section id="home" class="hero-carousel" style="margin-top: 88px;">
+    <section id="home" class="hero-carousel">
         <!-- Desktop Banner -->
         <div class="desktop-banner">
             <div id="heroCarouselDesktop" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
@@ -2749,35 +2883,17 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <img src="assets/Artboard 1.png" alt="Modern eye care facility with advanced equipment" loading="lazy" >
-                        <!-- <div class="carousel-caption">
-                            <h1>Advanced Eye Care Excellence</h1>
-                            <p>Leading India's vision revolution with cutting-edge technology, world-class facilities, and compassionate care for every patient.</p>
-                            <a href="#services" class="btn btn-light btn-lg">
-                                <i class="fas fa-arrow-right me-2"></i>Explore Our Services
-                            </a>
-                        </div> -->
+                        
                     </div>
                     
                     <div class="carousel-item">
                         <img src="assets/Artboard 2.png" alt="Expert eye surgeons performing advanced procedures" loading="lazy" >
-                        <!-- <div class="carousel-caption">
-                            <h1>Expert Eye Surgeons</h1>
-                            <p>Our world-renowned ophthalmologists bring decades of experience in complex eye surgeries and innovative treatments.</p>
-                            <a href="#doctors" class="btn btn-light btn-lg">
-                                <i class="fas fa-user-md me-2"></i>Meet Our Specialists
-                            </a>
-                        </div> -->
+                        
                     </div>
                     
                     <div class="carousel-item">
                         <img src="assets/Artboard 6.png" alt="State-of-the-art medical technology and equipment" loading="lazy" >
-                        <!-- <div class="carousel-caption">
-                            <h1>Revolutionary Technology</h1>
-                            <p>Equipped with the latest diagnostic tools and surgical equipment to deliver precision treatments and optimal outcomes.</p>
-                            <a href="#technology" class="btn btn-light btn-lg">
-                                <i class="fas fa-microscope me-2"></i>Our Technology
-                            </a>
-                        </div> -->
+                       
                     </div>
                 </div>
                 
@@ -2848,54 +2964,27 @@
         </div>
     </section>
 
-    <section class="locations-banner">
-        <div class="container-fluid">
-            <!-- <div class="locations-header">
-                <h2>Our Centers Across India</h2>
-                <p>Delivering world-class eye care in major cities nationwide</p>
-            </div> -->
-            
-            <div class="locations-container">
-                <!-- Mumbai -->
-                <div class="location-item" tabindex="0" role="button" aria-label="IGHEHRC Mumbai Center">
-                    <div class="location-image mumbai-img"></div>
-                    <div class="location-code">MUMBAI</div>
-                    
-                </div>
-
-                <!-- Delhi NCR -->
-                <div class="location-item" tabindex="0" role="button" aria-label="IGHEHRC Delhi NCR Center">
-                    <div class="location-image delhi-img"></div>
-                    <div class="location-code">DELHI NCR</div>
-              
-                </div>
-
-                <!-- Bangalore -->
-                <div class="location-item" tabindex="0" role="button" aria-label="IGHEHRC Bangalore Center">
-                    <div class="location-image bangalore-img"></div>
-                    <div class="location-code">BANGALORE</div>
- 
-                </div>
-
-                <!-- Chennai -->
-                <div class="location-item" tabindex="0" role="button" aria-label="IGHEHRC Chennai Center">
-                    <div class="location-image chennai-img"></div>
-                    <div class="location-code">CHENNAI</div>
-           
-                </div>
-
-                <!-- Hyderabad -->
-                <div class="location-item" tabindex="0" role="button" aria-label="IGHEHRC Hyderabad Center">
-                    <div class="location-image hyderabad-img"></div>
-                    <div class="location-code">HYDERABAD</div>
-       
-                </div>
-
-                <!-- Pune -->
-                <div class="location-item" tabindex="0" role="button" aria-label="IGHEHRC Pune Center">
-                    <div class="location-image pune-img"></div>
-                    <div class="location-code">PUNE</div>
-               
+    <section class="ceo-promise">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="ceo-card">
+                        <div class="ceo-image col-lg-4">
+                            <img src="assets/gurugram-hos.jpg" alt="Dr. Sanjay Dhawan">
+                        </div>
+                        <div class="ceo-content col-lg-8">
+                            <div class="ceo-icon">
+                                <i class="fas fa-user-md"></i>
+                            </div>
+                            <blockquote class="ceo-quote">
+                                "We are committed to an ethical and compassionate approach to eye care. Besides delivering high-quality eye care at affordable cost, we give quality time and personalized care to every patient."
+                            </blockquote>
+                            <div>
+                                <h4 class="ceo-name">Dr. Sanjay Dhawan</h4>
+                                <p class="ceo-title">CEO & Director of Medical Services</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3476,8 +3565,203 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Enhanced JavaScript -->
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get all necessary elements
+            const navbarToggler = document.querySelector('#navbarToggler');
+            const hamburgerIcon = document.querySelector('#hamburgerIcon');
+            const navbarCollapse = document.querySelector('#navbarNav');
+            const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+            const dropdownMenus = document.querySelectorAll('.dropdown-menu');
+            const navLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle)');
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            const appointmentBtn = document.querySelector('.btn-appointment');
+            
+            // Initialize Bootstrap collapse instance
+            let bsCollapse = null;
+            if (navbarCollapse) {
+                bsCollapse = new bootstrap.Collapse(navbarCollapse, { toggle: false });
+            }
+            
+            // Function to update hamburger icon
+            function updateHamburgerIcon(isOpen) {
+                if (hamburgerIcon) {
+                    hamburgerIcon.innerHTML = isOpen ? '✕' : '☰';
+                    hamburgerIcon.style.fontSize = isOpen ? '18px' : '20px';
+                    hamburgerIcon.style.fontWeight = 'bold';
+                }
+                if (navbarToggler) {
+                    navbarToggler.setAttribute('aria-expanded', isOpen);
+                }
+            }
+            
+            // Function to close all dropdowns
+            function closeAllDropdowns() {
+                dropdownMenus.forEach(function(menu) {
+                    if (menu.classList.contains('show')) {
+                        menu.classList.remove('show');
+                        const toggle = menu.previousElementSibling;
+                        if (toggle) {
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                    }
+                });
+            }
+            
+            // Function to close navbar on mobile
+            function closeNavbarOnMobile() {
+                if (window.innerWidth <= 991.98 && navbarCollapse && navbarCollapse.classList.contains('show')) {
+                    if (bsCollapse) {
+                        bsCollapse.hide();
+                    }
+                }
+            }
+            
+            // Listen to Bootstrap collapse events
+            if (navbarCollapse) {
+                navbarCollapse.addEventListener('show.bs.collapse', function() {
+                    updateHamburgerIcon(true);
+                });
+                
+                navbarCollapse.addEventListener('shown.bs.collapse', function() {
+                    updateHamburgerIcon(true);
+                });
+                
+                navbarCollapse.addEventListener('hide.bs.collapse', function() {
+                    updateHamburgerIcon(false);
+                });
+                
+                navbarCollapse.addEventListener('hidden.bs.collapse', function() {
+                    updateHamburgerIcon(false);
+                });
+            }
+            
+            // Hamburger menu toggle functionality
+            if (navbarToggler) {
+                navbarToggler.addEventListener('click', function(e) {
+                    // Don't prevent default - let Bootstrap handle the toggle
+                    // Just close dropdowns first
+                    closeAllDropdowns();
+                });
+            }
+            
+            // Enhanced dropdown functionality
+            dropdownToggles.forEach(function(toggle) {
+                // Click event for mobile
+                toggle.addEventListener('click', function(e) {
+                    // On mobile, handle manually
+                    if (window.innerWidth <= 991.98) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const dropdown = toggle.nextElementSibling;
+                        const isOpen = dropdown.classList.contains('show');
+                        
+                        // Close all other dropdowns first
+                        closeAllDropdowns();
+                        
+                        // Toggle current dropdown
+                        if (!isOpen) {
+                            dropdown.classList.add('show');
+                            toggle.setAttribute('aria-expanded', 'true');
+                        }
+                    }
+                    // On desktop, let Bootstrap handle it naturally
+                });
+                
+                // Hover events for desktop
+                const dropdownParent = toggle.closest('.dropdown');
+                if (dropdownParent) {
+                    dropdownParent.addEventListener('mouseenter', function() {
+                        if (window.innerWidth > 991.98) {
+                            const dropdown = toggle.nextElementSibling;
+                            dropdown.classList.add('show');
+                            toggle.setAttribute('aria-expanded', 'true');
+                        }
+                    });
+                    
+                    dropdownParent.addEventListener('mouseleave', function() {
+                        if (window.innerWidth > 991.98) {
+                            const dropdown = toggle.nextElementSibling;
+                            dropdown.classList.remove('show');
+                            toggle.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                }
+            });
+            
+            // Close navbar when clicking on regular nav links
+            navLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    closeAllDropdowns();
+                    closeNavbarOnMobile();
+                });
+            });
+            
+            // Close navbar when clicking on dropdown items
+            dropdownItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    closeAllDropdowns();
+                    closeNavbarOnMobile();
+                });
+            });
+            
+            // Close navbar when clicking appointment button
+            if (appointmentBtn) {
+                appointmentBtn.addEventListener('click', function() {
+                    closeAllDropdowns();
+                    closeNavbarOnMobile();
+                });
+            }
+            
+            // Close everything when clicking outside
+            document.addEventListener('click', function(e) {
+                const isNavbarClick = e.target.closest('.navbar');
+                
+                if (!isNavbarClick) {
+                    // Close dropdowns
+                    closeAllDropdowns();
+                    
+                    // Close navbar on mobile
+                    closeNavbarOnMobile();
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                // Close mobile menu when switching to desktop
+                if (window.innerWidth > 991.98) {
+                    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+                        if (bsCollapse) {
+                            bsCollapse.hide();
+                        }
+                    }
+                    updateHamburgerIcon(false);
+                }
+                
+                // Close all dropdowns on resize
+                closeAllDropdowns();
+            });
+            
+            // Handle escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeAllDropdowns();
+                    closeNavbarOnMobile();
+                }
+            });
+            
+            // Initialize hamburger icon state
+            updateHamburgerIcon(false);
+            
+            // Prevent dropdown menu clicks from bubbling
+            dropdownMenus.forEach(function(menu) {
+                menu.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+            });
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const faqItems = document.querySelectorAll('.faq-item');
@@ -3606,12 +3890,12 @@
         });
 
         // Intersection Observer for performance optimization
-        const observerOptions = {
+        var observerOptions = {
             threshold: 0.1,
             rootMargin: '50px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
+        var observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('animate-in');
@@ -4125,4 +4409,6 @@
         }
     });
 </script>
-        
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>     
