@@ -2732,6 +2732,353 @@
                 margin-top: 15px;
             }
         }
+
+        .testimonial-section {
+            background: #f8fafc;
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            color: var(--secondary-blue);
+            font-weight: 700;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-blue);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .slider-container {
+            position: relative;
+            height: 480px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .testimonial-track {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            transition: transform 0.6s ease;
+            transform-style: preserve-3d;
+        }
+
+        .testimonial-card {
+            position: relative;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.6s ease;
+            border: 1px solid #e2e8f0;
+            transform-origin: center center;
+        }
+
+        /* Side cards (inactive) */
+        .testimonial-card.inactive {
+            width: 300px;
+            height: 380px;
+            transform: scale(0.9);
+            opacity: 0.7;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Center card (active) */
+        .testimonial-card.active {
+            width: 400px;
+            height: 450px;
+            transform: scale(1);
+            opacity: 1;
+            box-shadow: 0 8px 30px rgba(74, 144, 226, 0.15);
+            z-index: 2;
+        }
+
+        /* Far side cards */
+        .testimonial-card.far {
+            width: 260px;
+            height: 320px;
+            transform: scale(0.8);
+            opacity: 0.4;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 70%;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .video-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: none;
+        }
+
+        .video-iframe.active {
+            display: block;
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .video-thumbnail.hidden {
+            display: none;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(74, 144, 226, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid white;
+        }
+
+        .play-button:hover {
+            background: var(--secondary-blue);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-button i {
+            color: white;
+            font-size: 18px;
+            margin-left: 2px;
+        }
+
+        .play-button.hidden {
+            display: none;
+        }
+
+        .patient-info {
+            padding: 20px;
+            height: 30%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .patient-name {
+            font-weight: 600;
+            color: var(--secondary-blue);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .patient-condition {
+            color: var(--primary-blue);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .rating {
+            display: flex;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .rating i {
+            color: #fbbf24;
+            font-size: 14px;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+            gap: 25px;
+        }
+
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid var(--primary-blue);
+            background: white;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+
+        .control-btn:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        .control-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .dots-indicator {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cbd5e1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background: var(--primary-blue);
+            transform: scale(1.2);
+        }
+
+        .close-video {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            z-index: 10;
+        }
+
+        .close-video.active {
+            display: flex;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .testimonial-card.active {
+                width: 350px;
+                height: 400px;
+            }
+            
+            .testimonial-card.inactive {
+                width: 270px;
+                height: 340px;
+            }
+            
+            .testimonial-card.far {
+                width: 220px;
+                height: 280px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .slider-container {
+                height: 400px;
+            }
+            
+            .testimonial-card.active {
+                width: 320px;
+                height: 360px;
+            }
+            
+            .testimonial-card.inactive {
+                width: 240px;
+                height: 300px;
+            }
+            
+            .testimonial-card.far {
+                display: none;
+            }
+            
+            .testimonial-track {
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .testimonial-card.active {
+                width: 290px;
+                height: 340px;
+            }
+            
+            .testimonial-card.inactive {
+                width: 210px;
+                height: 260px;
+            }
+            
+            .testimonial-track {
+                gap: 15px;
+            }
+        }
+
+        /* Loading state */
+        .video-loading {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 14px;
+            display: none;
+        }
+
+        .video-loading.active {
+            display: block;
+        }
+
+        /* Smooth iframe transitions */
+        .video-iframe {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-iframe.loaded {
+            opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -2822,19 +3169,19 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
                                aria-expanded="false" id="hospitalsDropdown">
-                                Hospitals
+                               Conditions
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="hospitalsDropdown">
-                                <li><a class="dropdown-item" href="#location1"><i class="fas fa-map-marker-alt"></i>Mumbai Central</a></li>
-                                <li><a class="dropdown-item" href="#location2"><i class="fas fa-map-marker-alt"></i>Delhi NCR</a></li>
-                                <li><a class="dropdown-item" href="#location3"><i class="fas fa-map-marker-alt"></i>Bangalore</a></li>
-                                <li><a class="dropdown-item" href="#location4"><i class="fas fa-map-marker-alt"></i>Chennai</a></li>
+                                <li><a class="dropdown-item" href="#location1"><i class="fas fa-map-marker-alt"></i>Conditions</a></li>
+                                <li><a class="dropdown-item" href="#location2"><i class="fas fa-map-marker-alt"></i>Conditions1</a></li>
+                                <li><a class="dropdown-item" href="#location3"><i class="fas fa-map-marker-alt"></i>Conditions2</a></li>
+                                <li><a class="dropdown-item" href="#location4"><i class="fas fa-map-marker-alt"></i>Conditions2</a></li>
                                 <li><a class="dropdown-item" href="#location5"><i class="fas fa-map-marker-alt"></i>Hyderabad</a></li>
                                 <li><a class="dropdown-item" href="#location6"><i class="fas fa-map-marker-alt"></i>Pune</a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#doctors">Doctors</a>
+                            <a class="nav-link" href="#doctors">Surgery</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
@@ -2854,10 +3201,10 @@
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#news">News</a>
+                            <a class="nav-link" href="#news">Contact us</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#social-impact">Social Impact</a>
+                            <a class="nav-link" href="#social-impact">Doctors</a>
                         </li>
                     </ul>
                     <a href="#appointment" class="btn-appointment" aria-label="Book an appointment">
@@ -2990,84 +3337,6 @@
         </div>
     </section>
 
-    <section class="about-section" id="about">
-        <div class="container about-container">
-            <!-- Section Header -->
-            <div class="section-header">
-                <div class="section-subtitle">Who We Are</div>
-                <h2 class="section-title">About IGEHRC</h2>
-                <p class="section-description">
-                    Pioneering excellence in eye care for over two decades, we combine cutting-edge technology 
-                    with compassionate healthcare to restore and preserve the gift of sight.
-                </p>
-            </div>
-
-            <!-- Main Content -->
-            <div class="about-content">
-                <!-- Image Side -->
-                <div class="about-image-container">
-                    <img src="assets/gurugram-hos.jpg" 
-                         alt="Modern IGHEHRC medical facility with advanced eye care equipment" 
-                         class="about-image"
-                         loading="lazy">
-                    <div class="image-overlay"></div>
-                    <div class="floating-badge">
-                        <div class="badge-number">25+</div>
-                        <div class="badge-text">Years of Excellence</div>
-                    </div>
-                </div>
-
-                <!-- Content Side -->
-                <div class="about-text-content">
-                    <div class="mission-vision-container">
-                        <!-- Mission Block -->
-                        <div class="content-block" role="region" aria-labelledby="mission-title">
-                            <div class="block-header">
-                                <div class="block-icon" aria-hidden="true">
-                                    <i class="fas fa-bullseye"></i>
-                                </div>
-                                <h3 class="block-title" id="mission-title">Our Mission</h3>
-                            </div>
-                            <div class="block-content">
-                                To provide world-class, accessible eye care services that combine advanced medical 
-                                technology with personalized patient care. .
-                            </div>
-                        </div>
-
-                        <!-- Vision Block -->
-                        <div class="content-block" role="region" aria-labelledby="vision-title">
-                            <div class="block-header">
-                                <div class="block-icon" aria-hidden="true">
-                                    <i class="fas fa-eye"></i>
-                                </div>
-                                <h3 class="block-title" id="vision-title">Our Vision</h3>
-                            </div>
-                            <div class="block-content">
-                                To be India's most trusted and innovative eye care network, setting new standards 
-                                in ophthalmic treatment and research. 
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Stats Section -->
-                    <div class="stats-container">
-                        <div class="stat-item">
-                            <div class="stat-number">1M+</div>
-                            <div class="stat-label">Patients Treated</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">50K+</div>
-                            <div class="stat-label">Surgeries Performed</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">6</div>
-                            <div class="stat-label">Cities Served</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="services-section" id="services">
         <div class="services-container">
             <!-- Section Header -->
@@ -3197,105 +3466,6 @@
         </div>
     </section>
 
-    <section class="medicare-essentials">
-        <div class="overlay-pattern"></div>
-        <div class="floating-ornament"></div>
-        <div class="floating-ornament"></div>
-        
-        <div class="container">
-            <div class="section-header">
-                <div class="section-subtitle">Why choose Us</div>
-                <h2 class="section-title">Why IGEHRC </h2>
-                <p class="section-description">
-                    At IGHEHRC, we provide world-class eye care services, supported by state-of-the-art medical 
-                    technologies and a team of dedicated healthcare professionals specialized in comprehensive care.
-                </p>
-            </div>
-            <div class="core-benefits-wrapper">
-                <div class="benefit-grid">
-                    <div class="benefit-card">
-                        <div class="icon-circle">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Experienced Doctors</h3>
-                            <p>Highly qualified medical professionals with years of expertise in their respective fields.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="icon-circle">
-                            <i class="fas fa-hospital-alt"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Wide Range of Services</h3>
-                            <p>Comprehensive healthcare services covering all medical specialties under one roof.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="icon-circle">
-                            <i class="fas fa-laptop-medical"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Advanced Technology</h3>
-                            <p>State-of-the-art medical equipment for precise diagnosis and effective treatment.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="icon-circle">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Personalized Care</h3>
-                            <p>Individual attention and customized treatment plans tailored to patient needs.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="icon-circle">
-                            <i class="fas fa-hand-holding-usd"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Affordable Treatments</h3>
-                            <p>Quality healthcare at competitive prices with transparent billing and flexible options.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="icon-circle">
-                            <i class="fas fa-procedures"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Caring Environment</h3>
-                            <p>Warm atmosphere designed to make patients feel comfortable and supported.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="icon-circle">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>High-Quality Care</h3>
-                            <p>Commitment to excellence with internationally recognized standards and practices.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="benefit-card">
-                        <div class="icon-circle">
-                            <i class="fas fa-clinic-medical"></i>
-                        </div>
-                        <div class="benefit-text">
-                            <h3>Accurate Diagnoses</h3>
-                            <p>Precise diagnostic services backed by advanced testing and expert analysis.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="doctors-section">
         <div class="doctor-pattern"></div>
@@ -3417,6 +3587,311 @@
             </div>
         </div>
     </section>
+
+
+
+
+ 
+  
+
+    <!-- <section class="medicare-essentials">
+        <div class="overlay-pattern"></div>
+        <div class="floating-ornament"></div>
+        <div class="floating-ornament"></div>
+        
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">Why choose Us</div>
+                <h2 class="section-title">Why IGEHRC </h2>
+                <p class="section-description">
+                    At IGHEHRC, we provide world-class eye care services, supported by state-of-the-art medical 
+                    technologies and a team of dedicated healthcare professionals specialized in comprehensive care.
+                </p>
+            </div>
+            <div class="core-benefits-wrapper">
+                <div class="benefit-grid">
+                    <div class="benefit-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Experienced Doctors</h3>
+                            <p>Highly qualified medical professionals with years of expertise in their respective fields.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-hospital-alt"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Wide Range of Services</h3>
+                            <p>Comprehensive healthcare services covering all medical specialties under one roof.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-laptop-medical"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Advanced Technology</h3>
+                            <p>State-of-the-art medical equipment for precise diagnosis and effective treatment.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Personalized Care</h3>
+                            <p>Individual attention and customized treatment plans tailored to patient needs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-hand-holding-usd"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Affordable Treatments</h3>
+                            <p>Quality healthcare at competitive prices with transparent billing and flexible options.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-procedures"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Caring Environment</h3>
+                            <p>Warm atmosphere designed to make patients feel comfortable and supported.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>High-Quality Care</h3>
+                            <p>Commitment to excellence with internationally recognized standards and practices.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="icon-circle">
+                            <i class="fas fa-clinic-medical"></i>
+                        </div>
+                        <div class="benefit-text">
+                            <h3>Accurate Diagnoses</h3>
+                            <p>Precise diagnostic services backed by advanced testing and expert analysis.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
+    <section class="testimonial-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Patient Success Stories</h2>
+                <p class="section-subtitle">Real patients sharing their transformative healthcare experiences</p>
+            </div>
+
+            <div class="slider-container">
+                <div class="testimonial-track" id="testimonialTrack">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card inactive" data-index="0">
+                        <div class="video-container">
+                            <img src="https://img.youtube.com/vi/7-pwrtCN9JQ/maxresdefault.jpg" alt="Sarah's Recovery" class="video-thumbnail">
+                            <iframe class="video-iframe" data-src="https://www.youtube.com/embed/7-pwrtCN9JQ?si=AUleSG9wOTmERrlT" allowfullscreen></iframe>
+                            <div class="play-button" onclick="playVideo(0)">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <button class="close-video" onclick="stopVideo(0)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="video-loading">Loading...</div>
+                        </div>
+                        <div class="patient-info">
+                            <div class="patient-name"> Ahmed Raza Khan</div>
+                            <div class="patient-condition">Cataract surgery</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card active" data-index="2">
+                        <div class="video-container">
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=600&h=400&fit=crop&auto=format" alt="Emily's Story" class="video-thumbnail">
+                            <iframe class="video-iframe" data-src="https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&mute=1" allowfullscreen></iframe>
+                            <div class="play-button" onclick="playVideo(2)">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <button class="close-video" onclick="stopVideo(2)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="video-loading">Loading...</div>
+                        </div>
+                        <div class="patient-info">
+                            <div class="patient-name">Miss Sneha </div>
+                            <div class="patient-condition">Lasik Surgery</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card far" data-index="3">
+                        <div class="video-container">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&auto=format" alt="David's Progress" class="video-thumbnail">
+                            <iframe class="video-iframe" data-src="https://www.youtube.com/embed/kJQP7kiw5Fk?autoplay=1&mute=1" allowfullscreen></iframe>
+                            <div class="play-button" onclick="playVideo(3)">
+                                <i class="fas fa-play"></i>
+                            </div>
+                            <button class="close-video" onclick="stopVideo(3)">
+                                <i class="fas fa-times"></i>
+                            </button>
+                            <div class="video-loading">Loading...</div>
+                        </div>
+                        <div class="patient-info">
+                            <div class="patient-name">David Thompson</div>
+                            <div class="patient-condition">Diabetes Management</div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                 
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <button class="control-btn" onclick="previousSlide()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="dots-indicator">
+                    <div class="dot" onclick="goToSlide(0)"></div>
+                    <div class="dot active " onclick="goToSlide(1)"></div>
+                    <div class="dot " onclick="goToSlide(2)"></div>
+                    <!-- <div class="dot" onclick="goToSlide(3)"></div> -->
+                    <!-- <div class="dot" onclick="goToSlide(4)"></div> -->
+                </div>
+                
+                <button class="control-btn" onclick="nextSlide()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+     
+
+    <section class="about-section" id="about">
+        <div class="container about-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-subtitle">Who We Are</div>
+                <h2 class="section-title">About IGEHRC</h2>
+                <p class="section-description">
+                    Pioneering excellence in eye care for over two decades, we combine cutting-edge technology 
+                    with compassionate healthcare to restore and preserve the gift of sight.
+                </p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="about-content">
+                <!-- Image Side -->
+                <div class="about-image-container">
+                    <img src="assets/gurugram-hos.jpg" 
+                         alt="Modern IGHEHRC medical facility with advanced eye care equipment" 
+                         class="about-image"
+                         loading="lazy">
+                    <div class="image-overlay"></div>
+                    <div class="floating-badge">
+                        <div class="badge-number">25+</div>
+                        <div class="badge-text">Years of Excellence</div>
+                    </div>
+                </div>
+
+                <!-- Content Side -->
+                <div class="about-text-content">
+                    <div class="mission-vision-container">
+                        <!-- Mission Block -->
+                        <div class="content-block" role="region" aria-labelledby="mission-title">
+                            <div class="block-header">
+                                <div class="block-icon" aria-hidden="true">
+                                    <i class="fas fa-bullseye"></i>
+                                </div>
+                                <h3 class="block-title" id="mission-title">Our Mission</h3>
+                            </div>
+                            <div class="block-content">
+                                To provide world-class, accessible eye care services that combine advanced medical 
+                                technology with personalized patient care. .
+                            </div>
+                        </div>
+
+                        <!-- Vision Block -->
+                        <div class="content-block" role="region" aria-labelledby="vision-title">
+                            <div class="block-header">
+                                <div class="block-icon" aria-hidden="true">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                                <h3 class="block-title" id="vision-title">Our Vision</h3>
+                            </div>
+                            <div class="block-content">
+                                To be India's most trusted and innovative eye care network, setting new standards 
+                                in ophthalmic treatment and research. 
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Section -->
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <div class="stat-number">1M+</div>
+                            <div class="stat-label">Patients Treated</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">50K+</div>
+                            <div class="stat-label">Surgeries Performed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">6</div>
+                            <div class="stat-label">Cities Served</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
 
     <section class="faq-section">
         <div class="faq-pattern"></div>
@@ -4382,6 +4857,179 @@
         });
     });
 </script>
+
+<script>
+    let currentSlide = 1; // Start with middle card active
+    const totalSlides = 3;
+    const cards = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.dot');
+    let isTransitioning = false;
+    let activeVideo = null;
+
+    function updateSlider() {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
+        cards.forEach((card, index) => {
+            card.classList.remove('active', 'inactive', 'far');
+            
+            if (index === currentSlide) {
+                card.classList.add('active');
+            } else if (Math.abs(index - currentSlide) === 1) {
+                card.classList.add('inactive');
+            } else {
+                card.classList.add('far');
+            }
+        });
+
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentSlide);
+        });
+
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 600);
+    }
+
+    function nextSlide() {
+        if (isTransitioning) return;
+        // Stop any playing video when changing slides
+        if (activeVideo !== null) {
+            stopVideo(activeVideo);
+        }
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateSlider();
+    }
+
+    function previousSlide() {
+        if (isTransitioning) return;
+        // Stop any playing video when changing slides
+        if (activeVideo !== null) {
+            stopVideo(activeVideo);
+        }
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateSlider();
+    }
+
+    function goToSlide(index) {
+        if (isTransitioning || index === currentSlide) return;
+        // Stop any playing video when changing slides
+        if (activeVideo !== null) {
+            stopVideo(activeVideo);
+        }
+        currentSlide = index;
+        updateSlider();
+    }
+
+    function playVideo(index) {
+        // Make sure this card is the active one first
+        if (currentSlide !== index) {
+            currentSlide = index;
+            updateSlider();
+            // Wait for transition to complete before playing video
+            setTimeout(() => {
+                startVideo(index);
+            }, 600);
+        } else {
+            startVideo(index);
+        }
+    }
+
+    function startVideo(index) {
+        // Stop any currently playing video
+        if (activeVideo !== null && activeVideo !== index) {
+            stopVideo(activeVideo);
+        }
+
+        const card = cards[index];
+        const thumbnail = card.querySelector('.video-thumbnail');
+        const iframe = card.querySelector('.video-iframe');
+        const playButton = card.querySelector('.play-button');
+        const closeButton = card.querySelector('.close-video');
+        const loading = card.querySelector('.video-loading');
+
+        // Show loading state
+        loading.classList.add('active');
+        playButton.classList.add('hidden');
+
+        // Load the iframe src if not already loaded
+        if (!iframe.src) {
+            iframe.src = iframe.dataset.src;
+        }
+
+        // Wait for iframe to load
+        iframe.onload = function() {
+            loading.classList.remove('active');
+            thumbnail.classList.add('hidden');
+            iframe.classList.add('active', 'loaded');
+            closeButton.classList.add('active');
+            activeVideo = index;
+        };
+
+        // Fallback in case onload doesn't fire
+        setTimeout(() => {
+            if (loading.classList.contains('active')) {
+                loading.classList.remove('active');
+                thumbnail.classList.add('hidden');
+                iframe.classList.add('active', 'loaded');
+                closeButton.classList.add('active');
+                activeVideo = index;
+            }
+        }, 2000);
+    }
+
+    function stopVideo(index) {
+        const card = cards[index];
+        const thumbnail = card.querySelector('.video-thumbnail');
+        const iframe = card.querySelector('.video-iframe');
+        const playButton = card.querySelector('.play-button');
+        const closeButton = card.querySelector('.close-video');
+        const loading = card.querySelector('.video-loading');
+
+        // Reset iframe to stop video
+        iframe.src = '';
+        iframe.classList.remove('active', 'loaded');
+        
+        // Show thumbnail again
+        thumbnail.classList.remove('hidden');
+        playButton.classList.remove('hidden');
+        closeButton.classList.remove('active');
+        loading.classList.remove('active');
+
+        if (activeVideo === index) {
+            activeVideo = null;
+        }
+    }
+
+    // Auto-advance slider every 6 seconds (when no video is playing)
+    setInterval(() => {
+        if (activeVideo === null && !isTransitioning) {
+            nextSlide();
+        }
+    }, 6000);
+
+    // Click on card to make it active
+    cards.forEach((card, index) => {
+        card.addEventListener('click', (e) => {
+            if (!e.target.closest('.play-button') && 
+                !e.target.closest('.close-video') && 
+                index !== currentSlide) {
+                goToSlide(index);
+            }
+        });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') nextSlide();
+        if (e.key === 'ArrowLeft') previousSlide();
+        if (e.key === 'Escape' && activeVideo !== null) stopVideo(activeVideo);
+    });
+
+    // Initialize
+    updateSlider();
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
 <!-- Initialize Swiper -->
