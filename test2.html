@@ -3,211 +3,395 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Website</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Eye Care Services</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        /* CEO Promise Section - Enhanced */
-        .ceo-promise {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9f5ff 100%);
-            position: relative;
-            overflow: hidden;
+        :root {
+            --primary-blue: #4A90E2;
+            --secondary-blue: #2471A3;
+            --light-blue: #DBEAFE;
+            --accent-blue: #2471A3;
+            --lighter-blue: #EFF6FF;
+            --light-bg: #F8FAFC;
         }
-        
-        .ceo-promise:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://www.transparenttextures.com/patterns/soft-circle-scales.png');
-            opacity: 0.03;
-            pointer-events: none;
+
+        body {
+            background-color: var(--light-bg);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
-        .ceo-card {
+
+        .services-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--lighter-blue) 0%, white 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            color: var(--secondary-blue);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .service-card {
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-            height: 250px;
-            display: flex;
-            align-items: stretch;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
-            border-left: 5px solid var(--primary-color);
-            position: relative;
-        }
-        
-        .ceo-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
-        }
-        
-        .ceo-image {
-            height: 100%;
+            border-radius: 16px;
             padding: 0;
-            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.12);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(74, 144, 226, 0.08);
+            cursor: pointer;
+            height: 100%;
             position: relative;
-            flex: 0 0 calc(100% - 75%);
-            min-width: calc(100% - 75%);
+            overflow: hidden;
         }
-        
-        .ceo-image:before {
-            content: "";
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        .service-card::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(13, 110, 253, 0.2) 0%, transparent 100%);
-            z-index: 1;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
         }
-        
-        .ceo-image img {
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .service-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center;
-            transition: transform 0.5s ease;
+            transition: all 0.4s ease;
         }
-        
-        .ceo-card:hover .ceo-image img {
-            transform: scale(1.03);
+
+        .service-card:hover .service-image {
+            transform: scale(1.1);
         }
-        
-        .ceo-content {
-            padding: 30px 40px;
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            opacity: 0;
+            transition: all 0.4s ease;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            flex: 0 0 75%;
-            max-width: 75%;
         }
-        
-        .ceo-quote {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 20px;
-            position: relative;
-            font-weight: 400;
-            font-style: italic;
+
+        .service-card:hover .image-overlay {
+            opacity: 0.85;
         }
-        
-        .ceo-quote:before {
-            content: "";
-            font-family: Georgia, serif;
-            font-size: 5rem;
-            color: var(--primary-color);
-            opacity: 0.1;
-            position: absolute;
-            left: -15px;
-            top: -30px;
-            line-height: 1;
+
+        .overlay-text {
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
         }
-        
-        .ceo-name {
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #333;
+
+        .service-card:hover .overlay-text {
+            transform: translateY(0);
+        }
+
+        .card-content {
+            padding: 20px 18px;
+        }
+
+        .service-title {
+            color: var(--secondary-blue);
             font-size: 1.2rem;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
-        
-        .ceo-title {
-            color: var(--secondary-color);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+
+        .service-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            /* -webkit-line-clamp: 3; */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-        
-        .ceo-signature {
-            position: absolute;
-            right: 40px;
-            bottom: 30px;
-            font-family: 'Brush Script MT', cursive;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            opacity: 0.8;
+
+        .learn-more {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            padding: 6px 14px;
+            border: 1.5px solid var(--primary-blue);
+            border-radius: 20px;
+            background: transparent;
         }
-        
-        .ceo-icon {
-            position: absolute;
-            right: 30px;
-            top: 30px;
-            color: var(--primary-color);
-            font-size: 2rem;
-            opacity: 0.1;
+
+        .learn-more:hover {
+            background: var(--primary-blue);
+            color: white;
+            gap: 8px;
+            transform: translateY(-1px);
         }
-        
-        @media (max-width: 991.98px) {
-            .ceo-card {
-                height: auto;
-                flex-direction: column;
+
+        .learn-more::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .learn-more:hover::after {
+            transform: translateX(3px);
+        }
+
+        .services-grid {
+            margin-top: 40px;
+        }
+
+        .services-grid .row > [class*="col-"] {
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .services-section {
+                padding: 40px 0;
             }
             
-            .ceo-image {
-                height: 200px;
-                flex: 0 0 100%;
-                min-width: 100%;
+            .section-title {
+                font-size: 2rem;
             }
             
-            .ceo-content {
-                padding: 30px;
-                flex: 0 0 100%;
-                max-width: 100%;
+            .service-card {
+                margin-bottom: 0;
             }
-            
-            .ceo-quote:before {
-                font-size: 4rem;
-                top: -20px;
+
+            .services-grid .row > [class*="col-"] {
+                margin-bottom: 25px;
+            }
+
+            .image-container {
+                height: 160px;
+            }
+
+            .card-content {
+                padding: 18px 15px;
             }
         }
-        
-        @media (max-width: 575.98px) {
-            .ceo-content {
-                padding: 25px;
-            }
-            
-            .ceo-quote {
-                font-size: 1rem;
-            }
-            
-            .ceo-signature {
-                position: relative;
-                right: auto;
-                bottom: auto;
-                margin-top: 15px;
+
+        @media (max-width: 576px) {
+            .services-grid .col-6 {
+                flex: 0 0 50%;
+                max-width: 50%;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Previous HTML content (navbar and hero banner) remains the same -->
-    
-    <!-- Enhanced CEO's Promise Section -->
-    <section class="ceo-promise">
+    <section class="services-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="ceo-card">
-                        <div class="ceo-image">
-                            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Dr. Sanjay Dhawan">
-                        </div>
-                        <div class="ceo-content">
-                            <i class="fas fa-quote-right ceo-icon"></i>
-                            <blockquote class="ceo-quote">
-                                We are committed to an ethical and compassionate approach to eye care. Besides delivering high-quality eye care at affordable cost, we give quality time and personalized care to every patient.
-                            </blockquote>
-                            <div>
-                                <h4 class="ceo-name">Dr. Sanjay Dhawan</h4>
-                                <p class="ceo-title">CEO & Director of Medical Services</p>
+            <div class="section-header">
+                <h2 class="section-title">Our Eye Care Services</h2>
+                <p class="section-subtitle">
+                    Advanced vision care with expert specialists and cutting-edge technology
+                </p>
+            </div>
+
+            <div class="row services-grid g-3">
+                <!-- Cataract Surgery -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="service-card" onclick="redirectToService('cataract')">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                 alt="Cataract Surgery" class="service-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Advanced Cataract Care</span>
                             </div>
-                            <div class="ceo-signature">Sanjay Dhawan</div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="service-title">Cataract Surgery</h3>
+                            <p class="service-description">
+                                Advanced microsurgical techniques to restore clear vision with premium lens options and rapid recovery
+                            </p>
+                            <a href="#" class="learn-more">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Retinal Care -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="service-card" onclick="redirectToService('retina')">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                 alt="Retinal Care" class="service-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Expert Retinal Treatment</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="service-title">Retinal Care</h3>
+                            <p class="service-description">
+                                Specialized treatment for diabetic retinopathy, macular degeneration, and complex retinal disorders
+                            </p>
+                            <a href="#" class="learn-more">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LASIK Surgery -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="service-card" onclick="redirectToService('lasik')">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                 alt="LASIK Surgery" class="service-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Precision Laser Vision</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="service-title">LASIK Surgery</h3>
+                            <p class="service-description">
+                                Precise laser vision correction for nearsightedness, farsightedness, and astigmatism with quick results
+                            </p>
+                            <a href="#" class="learn-more">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pediatric Care -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="service-card" onclick="redirectToService('pediatric')">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                 alt="Pediatric Eye Care" class="service-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Gentle Children's Care</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="service-title">Pediatric Care</h3>
+                            <p class="service-description">
+                                Gentle, specialized eye care for children with early detection and comprehensive treatment programs
+                            </p>
+                            <a href="#" class="learn-more">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corneal Transplant -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="service-card" onclick="redirectToService('cornea')">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                 alt="Corneal Transplant" class="service-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Advanced Corneal Surgery</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="service-title">Corneal Transplant</h3>
+                            <p class="service-description">
+                                Advanced corneal transplantation procedures to restore vision and improve eye health outcomes
+                            </p>
+                            <a href="#" class="learn-more">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Glaucoma Treatment -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="service-card" onclick="redirectToService('glaucoma')">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                 alt="Glaucoma Treatment" class="service-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Comprehensive Glaucoma Care</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="service-title">Glaucoma Treatment</h3>
+                            <p class="service-description">
+                                Comprehensive glaucoma management with the latest medical and surgical treatment options
+                            </p>
+                            <a href="#" class="learn-more">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Neuro-Ophthalmology -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="service-card" onclick="redirectToService('neuro')">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                 alt="Neuro-Ophthalmology" class="service-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Specialized Neuro Care</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="service-title">Neuro-Ophthalmology</h3>
+                            <p class="service-description">
+                                Expert diagnosis and treatment of vision problems related to the nervous system and brain
+                            </p>
+                            <a href="#" class="learn-more">Learn More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oculoplastic Surgery -->
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="service-card" onclick="redirectToService('oculoplasty')">
+                        <div class="image-container">
+                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                 alt="Oculoplastic Surgery" class="service-image">
+                            <div class="image-overlay">
+                                <span class="overlay-text">Aesthetic Eye Surgery</span>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="service-title">Oculoplastic Surgery</h3>
+                            <p class="service-description">
+                                Cosmetic and reconstructive surgery for eyelids, tear ducts, and orbital areas with natural results
+                            </p>
+                            <a href="#" class="learn-more">Learn More →</a>
                         </div>
                     </div>
                 </div>
@@ -215,11 +399,36 @@
         </div>
     </section>
 
-    <!-- Bootstrap JS Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Previous JavaScript remains the same
+        function redirectToService(service) {
+            // Replace with your actual service page URLs
+            const serviceUrls = {
+                'cataract': '/services/cataract-surgery',
+                'retina': '/services/retinal-care',
+                'lasik': '/services/lasik-surgery',
+                'pediatric': '/services/pediatric-care',
+                'cornea': '/services/corneal-transplant',
+                'glaucoma': '/services/glaucoma-treatment',
+                'neuro': '/services/neuro-ophthalmology',
+                'oculoplasty': '/services/oculoplastic-surgery'
+            };
+            
+            // For demo purposes, show alert. Replace with actual navigation
+            console.log(`Redirecting to ${service} service page: ${serviceUrls[service]}`);
+            // window.location.href = serviceUrls[service];
+        }
+
+        // Add smooth interactions
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
     </script>
 </body>
 </html>

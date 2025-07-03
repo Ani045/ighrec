@@ -79,8 +79,9 @@
 
 .ighehrc-carousel-track {
     display: flex;
-    animation: ighehrc-slide 20s infinite linear;
+    animation: ighehrc-slide 30s infinite linear;
     white-space: nowrap;
+    
 }
 
 .ighehrc-location-item {
@@ -2760,7 +2761,7 @@
         .section-subtitle {
             color: #64748b;
             font-size: 1.1rem;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             text-align: center;
             font-weight: 400;
         }
@@ -3079,6 +3080,309 @@
         .video-iframe.loaded {
             opacity: 1;
         }
+
+        .eye-care-services-section {
+            padding: 60px 0;
+            background: linear-gradient(135deg, var(--lighter-blue) 0%, white 100%);
+        }
+
+        .eye-care-section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .eye-care-section-title {
+            color: var(--secondary-blue);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .eye-care-section-subtitle {
+            color: #666;
+            font-size: 1.1rem;
+            max-width: 550px;
+            margin: 0 auto;
+        }
+
+        .eye-care-service-card {
+            background: white;
+            border-radius: 16px;
+            padding: 0;
+            text-align: center;
+            box-shadow: 0 6px 20px rgba(74, 144, 226, 0.12);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(74, 144, 226, 0.08);
+            cursor: pointer;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .eye-care-service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(74, 144, 226, 0.2);
+            border-color: var(--primary-blue);
+        }
+
+        .eye-care-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .eye-care-service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .eye-care-image-container {
+            position: relative;
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            border-radius: 16px 16px 0 0;
+        }
+
+        .eye-care-service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .eye-care-service-card:hover .eye-care-service-image {
+            transform: scale(1.1);
+        }
+
+        .eye-care-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .eye-care-service-card:hover .eye-care-image-overlay {
+            opacity: 0.85;
+        }
+
+        .eye-care-overlay-text {
+            color: white;
+            font-weight: 600;
+            font-size: 1rem;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .eye-care-service-card:hover .eye-care-overlay-text {
+            transform: translateY(0);
+        }
+
+        .eye-care-card-content {
+            padding: 20px 18px;
+        }
+
+        .eye-care-service-title {
+            color: var(--secondary-blue);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .eye-care-service-description {
+            color: #666;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 16px;
+            display: -webkit-box;
+          /* -webkit-line-clamp: 3; */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .eye-care-learn-more {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+            padding: 6px 14px;
+            border: 1.5px solid var(--primary-blue);
+            border-radius: 20px;
+            background: transparent;
+        }
+
+        .eye-care-learn-more:hover {
+            background: var(--primary-blue);
+            color: white;
+            gap: 8px;
+            transform: translateY(-1px);
+        }
+
+        .eye-care-learn-more::after {
+            content: '→';
+            transition: transform 0.3s ease;
+        }
+
+        .eye-care-learn-more:hover::after {
+            transform: translateX(3px);
+        }
+
+        .eye-care-services-grid {
+            margin-top: 40px;
+        }
+
+        .eye-care-services-grid .row > [class*="col-"] {
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .eye-care-services-section {
+                padding: 40px 0;
+            }
+            
+            .eye-care-section-title {
+                font-size: 2rem;
+            }
+            
+            .eye-care-service-card {
+                margin-bottom: 0;
+            }
+
+            .eye-care-services-grid .row > [class*="col-"] {
+                margin-bottom: 25px;
+            }
+
+            .eye-care-image-container {
+                height: 200px;
+            }
+
+            .eye-care-card-content {
+                padding: 20px 18px;
+            }
+
+            .eye-care-service-title {
+                font-size: 1.3rem;
+                margin-bottom: 12px;
+            }
+
+            .eye-care-service-description {
+                font-size: 0.95rem;
+                margin-bottom: 18px;
+            }
+
+            /* Mobile Carousel Styles */
+            .eye-care-mobile-carousel {
+                display: block;
+                position: relative;
+                overflow: hidden;
+                margin-top: 30px;
+                width: 100%;
+            }
+
+            .eye-care-desktop-grid {
+                display: none;
+            }
+
+            .eye-care-carousel-container {
+                display: flex;
+                transition: transform 0.3s ease;
+                width: 100%;
+            }
+
+            .eye-care-carousel-slide {
+                width: 100%;
+                flex-shrink: 0;
+                display: flex;
+                justify-content: center;
+                padding: 0 15px;
+                box-sizing: border-box;
+            }
+
+            .eye-care-carousel-slide .eye-care-service-card {
+                width: 100%;
+                max-width: 320px;
+                margin: 0 auto;
+            }
+
+            .eye-care-carousel-controls {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 25px;
+            }
+
+            .eye-care-carousel-btn {
+                display: none; /* Hide navigation buttons on mobile */
+            }
+
+            .eye-care-carousel-indicators {
+                display: flex;
+                gap: 10px;
+            }
+
+            .eye-care-indicator {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: #ddd;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .eye-care-indicator.active {
+                background: var(--primary-blue);
+                transform: scale(1.4);
+            }
+
+            .eye-care-indicator:hover {
+                background: var(--light-blue);
+            }
+        }
+
+        @media (min-width: 769px) {
+            .eye-care-mobile-carousel {
+                display: none;
+            }
+            
+            .eye-care-desktop-grid {
+                display: block;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .eye-care-carousel-slide {
+                padding: 0 10px;
+            }
+            
+            .eye-care-carousel-slide .eye-care-service-card {
+                max-width: 300px;
+            }
+            
+            .eye-care-section-title {
+                font-size: 1.8rem;
+            }
+            
+            .eye-care-image-container {
+                height: 180px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -3115,8 +3419,8 @@
                         <span class="ighehrc-location-text">Fursatganj</span>
                     </a>
                     
-                    <!-- Duplicate set for seamless loop -->
-                    <a href="#" class="ighehrc-location-item">
+                    <!-- Duplicate set for seamless loop --> 
+                     <a href="#" class="ighehrc-location-item">
                         <i class="fas fa-map-marker-alt ighehrc-location-icon"></i>
                         <span class="ighehrc-location-text">Gurugram</span>
                     </a>
@@ -3324,6 +3628,7 @@
                                 <i class="fas fa-user-md"></i>
                             </div>
                             <blockquote class="ceo-quote">
+                                <h4 class="ceo-name">CEO's Promise</h4>
                                 "We are committed to an ethical and compassionate approach to eye care. Besides delivering high-quality eye care at affordable cost, we give quality time and personalized care to every patient."
                             </blockquote>
                             <div>
@@ -3337,134 +3642,195 @@
         </div>
     </section>
 
-    <section class="services-section" id="services">
-        <div class="services-container">
-            <!-- Section Header -->
+    <section class="eye-care-services-section">
+        <div class="container">
+
             <div class="section-header">
-                <div class="section-subtitle">Centers of Clinical Excellence</div>
-                <h2 class="section-title">Discover Our Eye Care Services</h2>
+                <div class="section-subtitle">Services</div>
+                <h2 class="section-title">Our Eye Care Services</h2>
                 <p class="section-description">
-                    At IGHEHRC, we provide world-class eye care services, supported by state-of-the-art medical 
-                    technologies and a team of dedicated healthcare professionals specialized in comprehensive care.
+                    Advanced vision care with expert specialists and cutting-edge technology
                 </p>
             </div>
 
-            <!-- Filter Navigation -->
-            <div class="filter-nav-container">
-                <!-- Filter Navigation Arrows -->
-                <div class="filter-nav-arrow left" onclick="scrollFilterNav('left')">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="filter-nav-arrow right" onclick="scrollFilterNav('right')">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-                
-                <div class="filter-nav" id="filterNav">
-                    <button class="filter-btn active" data-service="cataract">Cataract Surgery</button>
-                    <button class="filter-btn" data-service="retina">Retinal Care</button>
-                    <button class="filter-btn" data-service="lasik">LASIK Surgery</button>
-                    <button class="filter-btn" data-service="pediatric">Pediatric Care</button>
-                    <button class="filter-btn" data-service="cornea">Corneal Transplant</button>
-                    <button class="filter-btn" data-service="glaucoma">Glaucoma Treatment</button>
-                    <button class="filter-btn" data-service="neuro">Neuro-Ophthalmology</button>
-                    <button class="filter-btn" data-service="oculoplasty">Oculoplastic Surgery</button>
-                </div>
-            </div>
-
-            <!-- Service Showcase -->
-            <div class="service-showcase active">
-                <!-- Service Content -->
-                <div class="service-content">
-                    <div class="service-text">
-                        <h3 class="service-title" id="serviceTitle">Cataract Surgery</h3>
-                        <p class="service-description" id="serviceDescription">
-                            IGHEHRC's Cataract department is at the forefront of cataract care in India and beyond, 
-                            offering a comprehensive range of services from advanced diagnostics and minimally invasive 
-                            procedures to premium IOL implantation.
-                        </p>
-                        <div class="service-specialties">
-                            <div class="specialties-title">Top Specialties & Procedures</div>
-                            <div id="serviceSpecialties">
-                                <span class="specialty-tag">Micro-incision Surgery</span>
-                                <span class="specialty-tag">Premium IOLs</span>
-                                <span class="specialty-tag">Toric Lenses</span>
+            <!-- Desktop Grid Layout -->
+            <div class="eye-care-desktop-grid">
+                <div class="row eye-care-services-grid g-3">
+                    <!-- Cataract Surgery -->
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="eye-care-service-card" onclick="redirectToService('cataract')">
+                            <div class="eye-care-image-container">
+                                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                     alt="Cataract Surgery" class="eye-care-service-image">
+                                <div class="eye-care-image-overlay">
+                                    <span class="eye-care-overlay-text">Advanced Cataract Care</span>
+                                </div>
+                            </div>
+                            <div class="eye-care-card-content">
+                                <h3 class="eye-care-service-title">Cataract Surgery</h3>
+                                <p class="eye-care-service-description">
+                                    Advanced microsurgical techniques to restore clear vision with premium lens options and rapid recovery
+                                </p>
+                                <a href="#" class="eye-care-learn-more">Learn More</a>
                             </div>
                         </div>
-                        <div class="service-actions">
-                            <a href="#find-doctor" class="action-btn primary">
-                                Find Doctor <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <a href="#explore-more" class="action-btn secondary">
-                                Explore More <i class="fas fa-external-link-alt"></i>
-                            </a>
+                    </div>
+
+                    <!-- Retinal Care -->
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="eye-care-service-card" onclick="redirectToService('retina')">
+                            <div class="eye-care-image-container">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                     alt="Retinal Care" class="eye-care-service-image">
+                                <div class="eye-care-image-overlay">
+                                    <span class="eye-care-overlay-text">Expert Retinal Treatment</span>
+                                </div>
+                            </div>
+                            <div class="eye-care-card-content">
+                                <h3 class="eye-care-service-title">Retinal Care</h3>
+                                <p class="eye-care-service-description">
+                                    Specialized treatment for diabetic retinopathy, macular degeneration, and complex retinal disorders
+                                </p>
+                                <a href="#" class="eye-care-learn-more">Learn More</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="service-image">
-                        <img id="serviceImage" 
-                             src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="Cataract Surgery" loading="lazy">
+
+                    <!-- LASIK Surgery -->
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="eye-care-service-card" onclick="redirectToService('lasik')">
+                            <div class="eye-care-image-container">
+                                <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                     alt="LASIK Surgery" class="eye-care-service-image">
+                                <div class="eye-care-image-overlay">
+                                    <span class="eye-care-overlay-text">Precision Laser Vision</span>
+                                </div>
+                            </div>
+                            <div class="eye-care-card-content">
+                                <h3 class="eye-care-service-title">LASIK Surgery</h3>
+                                <p class="eye-care-service-description">
+                                    Precise laser vision correction for nearsightedness, farsightedness, and astigmatism with quick results
+                                </p>
+                                <a href="#" class="eye-care-learn-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pediatric Care -->
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="eye-care-service-card" onclick="redirectToService('pediatric')">
+                            <div class="eye-care-image-container">
+                                <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                     alt="Pediatric Eye Care" class="eye-care-service-image">
+                                <div class="eye-care-image-overlay">
+                                    <span class="eye-care-overlay-text">Gentle Children's Care</span>
+                                </div>
+                            </div>
+                            <div class="eye-care-card-content">
+                                <h3 class="eye-care-service-title">Pediatric Care</h3>
+                                <p class="eye-care-service-description">
+                                    Gentle, specialized eye care for children with early detection and comprehensive treatment programs
+                                </p>
+                                <a href="#" class="eye-care-learn-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Corneal Transplant -->
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="eye-care-service-card" onclick="redirectToService('cornea')">
+                            <div class="eye-care-image-container">
+                                <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                     alt="Corneal Transplant" class="eye-care-service-image">
+                                <div class="eye-care-image-overlay">
+                                    <span class="eye-care-overlay-text">Advanced Corneal Surgery</span>
+                                </div>
+                            </div>
+                            <div class="eye-care-card-content">
+                                <h3 class="eye-care-service-title">Corneal Transplant</h3>
+                                <p class="eye-care-service-description">
+                                    Advanced corneal transplantation procedures to restore vision and improve eye health outcomes
+                                </p>
+                                <a href="#" class="eye-care-learn-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Glaucoma Treatment -->
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="eye-care-service-card" onclick="redirectToService('glaucoma')">
+                            <div class="eye-care-image-container">
+                                <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                     alt="Glaucoma Treatment" class="eye-care-service-image">
+                                <div class="eye-care-image-overlay">
+                                    <span class="eye-care-overlay-text">Comprehensive Glaucoma Care</span>
+                                </div>
+                            </div>
+                            <div class="eye-care-card-content">
+                                <h3 class="eye-care-service-title">Glaucoma Treatment</h3>
+                                <p class="eye-care-service-description">
+                                    Comprehensive glaucoma management with the latest medical and surgical treatment options
+                                </p>
+                                <a href="#" class="eye-care-learn-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Neuro-Ophthalmology -->
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="eye-care-service-card" onclick="redirectToService('neuro')">
+                            <div class="eye-care-image-container">
+                                <img src="https://images.unsplash.com/photo-1530026405186-ed1f139313f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                     alt="Neuro-Ophthalmology" class="eye-care-service-image">
+                                <div class="eye-care-image-overlay">
+                                    <span class="eye-care-overlay-text">Specialized Neuro Care</span>
+                                </div>
+                            </div>
+                            <div class="eye-care-card-content">
+                                <h3 class="eye-care-service-title">Neuro-Ophthalmology</h3>
+                                <p class="eye-care-service-description">
+                                    Expert diagnosis and treatment of vision problems related to the nervous system and brain
+                                </p>
+                                <a href="#" class="eye-care-learn-more">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Oculoplastic Surgery -->
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="eye-care-service-card" onclick="redirectToService('oculoplasty')">
+                            <div class="eye-care-image-container">
+                                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400" 
+                                     alt="Oculoplastic Surgery" class="eye-care-service-image">
+                                <div class="eye-care-image-overlay">
+                                    <span class="eye-care-overlay-text">Aesthetic Eye Surgery</span>
+                                </div>
+                            </div>
+                            <div class="eye-care-card-content">
+                                <h3 class="eye-care-service-title">Oculoplastic Surgery</h3>
+                                <p class="eye-care-service-description">
+                                    Cosmetic and reconstructive surgery for eyelids, tear ducts, and orbital areas with natural results
+                                </p>
+                                <a href="#" class="eye-care-learn-more">Learn More</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Service Data -->
-        <div class="service-data active" data-service="cataract">
-            <div data-title="Cataract Surgery"></div>
-            <div data-description="IGHEHRC's Cataract department is at the forefront of cataract care in India and beyond, offering a comprehensive range of services from advanced diagnostics and minimally invasive procedures to premium IOL implantation."></div>
-            <div data-specialties="Micro-incision Surgery,Premium IOLs,Toric Lenses"></div>
-            <div data-image="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
-        </div>
-
-        <div class="service-data" data-service="retina">
-            <div data-title="Retinal Care"></div>
-            <div data-description="Comprehensive treatment for diabetic retinopathy, macular degeneration, and retinal detachment using cutting-edge technology including anti-VEGF therapy and advanced vitrectomy procedures."></div>
-            <div data-specialties="Diabetic Retinopathy,Vitrectomy Surgery,Anti-VEGF Therapy"></div>
-            <div data-image="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
-        </div>
-
-        <div class="service-data" data-service="lasik">
-            <div data-title="LASIK Surgery"></div>
-            <div data-description="Bladeless LASIK and advanced refractive surgery for permanent vision correction with precision and safety. State-of-the-art technology ensures optimal outcomes for various refractive errors."></div>
-            <div data-specialties="Bladeless LASIK,ICL Implantation,Custom Wavefront"></div>
-            <div data-image="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
-        </div>
-
-        <div class="service-data" data-service="pediatric">
-            <div data-title="Pediatric Eye Care"></div>
-            <div data-description="Specialized care for children's vision development, amblyopia treatment, and pediatric eye conditions. Our child-friendly approach ensures comfortable treatment for young patients."></div>
-            <div data-specialties="Squint Correction,Amblyopia Therapy,Vision Development"></div>
-            <div data-image="https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
-        </div>
-
-        <div class="service-data" data-service="cornea">
-            <div data-title="Corneal Transplant"></div>
-            <div data-description="Advanced corneal transplantation procedures including DSEK, DMEK, and full-thickness transplants for various corneal diseases with excellent success rates."></div>
-            <div data-specialties="DSEK/DMEK Surgery,Cross-Linking,Full Thickness"></div>
-            <div data-image="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
-        </div>
-
-        <div class="service-data" data-service="glaucoma">
-            <div data-title="Glaucoma Treatment"></div>
-            <div data-description="Comprehensive glaucoma management with advanced diagnostic tools and minimally invasive surgical options to preserve vision and prevent progression."></div>
-            <div data-specialties="MIGS Procedures,OCT Monitoring,Laser Therapy"></div>
-            <div data-image="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
-        </div>
-
-        <div class="service-data" data-service="neuro">
-            <div data-title="Neuro-Ophthalmology"></div>
-            <div data-description="Expert care for complex conditions affecting the visual pathway, optic nerve disorders, and neurological vision problems with multidisciplinary approach."></div>
-            <div data-specialties="Optic Nerve Care,Visual Field Analysis,Double Vision"></div>
-            <div data-image="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
-        </div>
-
-        <div class="service-data" data-service="oculoplasty">
-            <div data-title="Oculoplastic Surgery"></div>
-            <div data-description="Reconstructive and cosmetic surgery for eyelids, tear ducts, and orbital conditions with natural-looking results and functional restoration."></div>
-            <div data-specialties="Blepharoplasty,Tear Duct Surgery,Orbital Reconstruction"></div>
-            <div data-image="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
+            <!-- Mobile Carousel -->
+            <div class="eye-care-mobile-carousel">
+                <div class="eye-care-carousel-container" id="eyeCareCarouselContainer">
+                    <!-- Services will be populated by JavaScript -->
+                </div>
+                
+                <div class="eye-care-carousel-controls">
+                    <div class="eye-care-carousel-indicators" id="eyeCareIndicators"></div>
+                </div>
+            </div>
         </div>
     </section>
+
 
 
     <section class="doctors-section">
@@ -3888,6 +4254,137 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+
+
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <!-- Section Header -->
+            <div class="section-header">
+                <div class="section-subtitle">Centers of Clinical Excellence</div>
+                <h2 class="section-title">Discover Our Eye Care Services</h2>
+                <p class="section-description">
+                    At IGHEHRC, we provide world-class eye care services, supported by state-of-the-art medical 
+                    technologies and a team of dedicated healthcare professionals specialized in comprehensive care.
+                </p>
+            </div>
+
+            <!-- Filter Navigation -->
+            <div class="filter-nav-container">
+                <!-- Filter Navigation Arrows -->
+                <div class="filter-nav-arrow left" onclick="scrollFilterNav('left')">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="filter-nav-arrow right" onclick="scrollFilterNav('right')">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+                
+                <div class="filter-nav" id="filterNav">
+                    <button class="filter-btn active" data-service="cataract">Cataract Surgery</button>
+                    <button class="filter-btn" data-service="retina">Retinal Care</button>
+                    <button class="filter-btn" data-service="lasik">LASIK Surgery</button>
+                    <button class="filter-btn" data-service="pediatric">Pediatric Care</button>
+                    <button class="filter-btn" data-service="cornea">Corneal Transplant</button>
+                    <button class="filter-btn" data-service="glaucoma">Glaucoma Treatment</button>
+                    <button class="filter-btn" data-service="neuro">Neuro-Ophthalmology</button>
+                    <button class="filter-btn" data-service="oculoplasty">Oculoplastic Surgery</button>
+                </div>
+            </div>
+
+            <!-- Service Showcase -->
+            <div class="service-showcase active">
+                <!-- Service Content -->
+                <div class="service-content">
+                    <div class="service-text">
+                        <h3 class="service-title" id="serviceTitle">Cataract Surgery</h3>
+                        <p class="service-description" id="serviceDescription">
+                            IGHEHRC's Cataract department is at the forefront of cataract care in India and beyond, 
+                            offering a comprehensive range of services from advanced diagnostics and minimally invasive 
+                            procedures to premium IOL implantation.
+                        </p>
+                        <div class="service-specialties">
+                            <div class="specialties-title">Top Specialties & Procedures</div>
+                            <div id="serviceSpecialties">
+                                <span class="specialty-tag">Micro-incision Surgery</span>
+                                <span class="specialty-tag">Premium IOLs</span>
+                                <span class="specialty-tag">Toric Lenses</span>
+                            </div>
+                        </div>
+                        <div class="service-actions">
+                            <a href="#find-doctor" class="action-btn primary">
+                                Find Doctor <i class="fas fa-arrow-right"></i>
+                            </a>
+                            <a href="#explore-more" class="action-btn secondary">
+                                Explore More <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="service-image">
+                        <img id="serviceImage" 
+                             src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Cataract Surgery" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Data -->
+        <div class="service-data active" data-service="cataract">
+            <div data-title="Cataract Surgery"></div>
+            <div data-description="IGHEHRC's Cataract department is at the forefront of cataract care in India and beyond, offering a comprehensive range of services from advanced diagnostics and minimally invasive procedures to premium IOL implantation."></div>
+            <div data-specialties="Micro-incision Surgery,Premium IOLs,Toric Lenses"></div>
+            <div data-image="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
+        </div>
+
+        <div class="service-data" data-service="retina">
+            <div data-title="Retinal Care"></div>
+            <div data-description="Comprehensive treatment for diabetic retinopathy, macular degeneration, and retinal detachment using cutting-edge technology including anti-VEGF therapy and advanced vitrectomy procedures."></div>
+            <div data-specialties="Diabetic Retinopathy,Vitrectomy Surgery,Anti-VEGF Therapy"></div>
+            <div data-image="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
+        </div>
+
+        <div class="service-data" data-service="lasik">
+            <div data-title="LASIK Surgery"></div>
+            <div data-description="Bladeless LASIK and advanced refractive surgery for permanent vision correction with precision and safety. State-of-the-art technology ensures optimal outcomes for various refractive errors."></div>
+            <div data-specialties="Bladeless LASIK,ICL Implantation,Custom Wavefront"></div>
+            <div data-image="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
+        </div>
+
+        <div class="service-data" data-service="pediatric">
+            <div data-title="Pediatric Eye Care"></div>
+            <div data-description="Specialized care for children's vision development, amblyopia treatment, and pediatric eye conditions. Our child-friendly approach ensures comfortable treatment for young patients."></div>
+            <div data-specialties="Squint Correction,Amblyopia Therapy,Vision Development"></div>
+            <div data-image="https://images.unsplash.com/photo-1551190822-a9333d879b1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
+        </div>
+
+        <div class="service-data" data-service="cornea">
+            <div data-title="Corneal Transplant"></div>
+            <div data-description="Advanced corneal transplantation procedures including DSEK, DMEK, and full-thickness transplants for various corneal diseases with excellent success rates."></div>
+            <div data-specialties="DSEK/DMEK Surgery,Cross-Linking,Full Thickness"></div>
+            <div data-image="https://images.unsplash.com/photo-1587474260584-136574528ed5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
+        </div>
+
+        <div class="service-data" data-service="glaucoma">
+            <div data-title="Glaucoma Treatment"></div>
+            <div data-description="Comprehensive glaucoma management with advanced diagnostic tools and minimally invasive surgical options to preserve vision and prevent progression."></div>
+            <div data-specialties="MIGS Procedures,OCT Monitoring,Laser Therapy"></div>
+            <div data-image="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
+        </div>
+
+        <div class="service-data" data-service="neuro">
+            <div data-title="Neuro-Ophthalmology"></div>
+            <div data-description="Expert care for complex conditions affecting the visual pathway, optic nerve disorders, and neurological vision problems with multidisciplinary approach."></div>
+            <div data-specialties="Optic Nerve Care,Visual Field Analysis,Double Vision"></div>
+            <div data-image="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
+        </div>
+
+        <div class="service-data" data-service="oculoplasty">
+            <div data-title="Oculoplastic Surgery"></div>
+            <div data-description="Reconstructive and cosmetic surgery for eyelids, tear ducts, and orbital conditions with natural-looking results and functional restoration."></div>
+            <div data-specialties="Blepharoplasty,Tear Duct Surgery,Orbital Reconstruction"></div>
+            <div data-image="https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"></div>
         </div>
     </section>
 
@@ -4652,7 +5149,7 @@
  </script>
    <script>
     let currentServiceIndex = 0;
-    const services = [
+   var services = [
         'cataract', 'retina', 'lasik', 'pediatric', 'cornea', 'glaucoma', 'neuro', 'oculoplasty'
     ];
 
@@ -4859,8 +5356,8 @@
 </script>
 
 <script>
-    let currentSlide = 1; // Start with middle card active
-    const totalSlides = 3;
+   var currentSlide = 1; // Start with middle card active
+   var totalSlides = 3;
     const cards = document.querySelectorAll('.testimonial-card');
     const dots = document.querySelectorAll('.dot');
     let isTransitioning = false;
@@ -5054,6 +5551,208 @@
                 slidesPerView: 3,
                 spaceBetween: 20,
             },
+        }
+    });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Services data
+    var services = [
+        {
+            id: 'cataract',
+            title: 'Cataract Surgery',
+            description: 'Advanced microsurgical techniques to restore clear vision with premium lens options and rapid recovery',
+            image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400',
+            overlay: 'Advanced Cataract Care'
+        },
+        {
+            id: 'retina',
+            title: 'Retinal Care',
+            description: 'Specialized treatment for diabetic retinopathy, macular degeneration, and complex retinal disorders',
+            image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400',
+            overlay: 'Expert Retinal Treatment'
+        },
+        {
+            id: 'lasik',
+            title: 'LASIK Surgery',
+            description: 'Precise laser vision correction for nearsightedness, farsightedness, and astigmatism with quick results',
+            image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400',
+            overlay: 'Precision Laser Vision'
+        },
+        {
+            id: 'pediatric',
+            title: 'Pediatric Care',
+            description: 'Gentle, specialized eye care for children with early detection and comprehensive treatment programs',
+            image: 'https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400',
+            overlay: 'Gentle Children\'s Care'
+        },
+        {
+            id: 'cornea',
+            title: 'Corneal Transplant',
+            description: 'Advanced corneal transplantation procedures to restore vision and improve eye health outcomes',
+            image: 'https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400',
+            overlay: 'Advanced Corneal Surgery'
+        },
+        {
+            id: 'glaucoma',
+            title: 'Glaucoma Treatment',
+            description: 'Comprehensive glaucoma management with the latest medical and surgical treatment options',
+            image: 'https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400',
+            overlay: 'Comprehensive Glaucoma Care'
+        },
+        {
+            id: 'neuro',
+            title: 'Neuro-Ophthalmology',
+            description: 'Expert diagnosis and treatment of vision problems related to the nervous system and brain',
+            image: 'https://images.unsplash.com/photo-1530026405186-ed1f139313f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400',
+            overlay: 'Specialized Neuro Care'
+        },
+        {
+            id: 'oculoplasty',
+            title: 'Oculoplastic Surgery',
+            description: 'Cosmetic and reconstructive surgery for eyelids, tear ducts, and orbital areas with natural results',
+            image: 'https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&h=400',
+            overlay: 'Aesthetic Eye Surgery'
+        }
+    ];
+
+    // Carousel functionality
+    var currentSlide = 0;
+    var slidesPerView = 1;
+   var totalSlides = services.length;
+
+    function initCarousel() {
+        const container = document.getElementById('eyeCareCarouselContainer');
+        const indicators = document.getElementById('eyeCareIndicators');
+        
+        // Clear existing content
+        container.innerHTML = '';
+        indicators.innerHTML = '';
+        
+        // Create slides
+        services.forEach((service, index) => {
+            const slide = document.createElement('div');
+            slide.className = 'eye-care-carousel-slide';
+            slide.innerHTML = `
+                <div class="eye-care-service-card" onclick="redirectToService('${service.id}')">
+                    <div class="eye-care-image-container">
+                        <img src="${service.image}" alt="${service.title}" class="eye-care-service-image">
+                        <div class="eye-care-image-overlay">
+                            <span class="eye-care-overlay-text">${service.overlay}</span>
+                        </div>
+                    </div>
+                    <div class="eye-care-card-content">
+                        <h3 class="eye-care-service-title">${service.title}</h3>
+                        <p class="eye-care-service-description">${service.description}</p>
+                        <a href="#" class="eye-care-learn-more" onclick="event.stopPropagation();">Learn More</a>
+                    </div>
+                </div>
+            `;
+            container.appendChild(slide);
+            
+            // Create indicator
+            const indicator = document.createElement('div');
+            indicator.className = `eye-care-indicator ${index === 0 ? 'active' : ''}`;
+            indicator.addEventListener('click', () => goToSlide(index));
+            indicators.appendChild(indicator);
+        });
+        
+        updateCarousel();
+    }
+
+    function updateCarousel() {
+        const container = document.getElementById('eyeCareCarouselContainer');
+        const indicators = document.querySelectorAll('.eye-care-indicator');
+        
+        // Update transform - show one card at a time
+        const offset = currentSlide * 100; // 100% width per slide
+        container.style.transform = `translateX(-${offset}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    function goToSlide(index) {
+        currentSlide = Math.max(0, Math.min(index, totalSlides - 1));
+        updateCarousel();
+    }
+
+    function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+            updateCarousel();
+        }
+    }
+
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateCarousel();
+        }
+    }
+
+    function redirectToService(service) {
+        // Replace with your actual service page URLs
+        const serviceUrls = {
+            'cataract': '/services/cataract-surgery',
+            'retina': '/services/retinal-care',
+            'lasik': '/services/lasik-surgery',
+            'pediatric': '/services/pediatric-care',
+            'cornea': '/services/corneal-transplant',
+            'glaucoma': '/services/glaucoma-treatment',
+            'neuro': '/services/neuro-ophthalmology',
+            'oculoplasty': '/services/oculoplastic-surgery'
+        };
+        
+        console.log(`Redirecting to ${service} service page: ${serviceUrls[service]}`);
+        // window.location.href = serviceUrls[service];
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize carousel for mobile
+        initCarousel();
+        
+        // Desktop hover effects
+        document.querySelectorAll('.eye-care-desktop-grid .eye-care-service-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Touch swipe support for mobile carousel
+        let startX = 0;
+        let endX = 0;
+        
+        const carouselContainer = document.getElementById('eyeCareCarouselContainer');
+        
+        carouselContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+        
+        carouselContainer.addEventListener('touchend', (e) => {
+            endX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    nextSlide(); // Swipe left - next slide
+                } else {
+                    prevSlide(); // Swipe right - prev slide
+                }
+            }
         }
     });
 </script>
