@@ -3377,6 +3377,398 @@
                 height: 180px;
             }
         }
+        /* Contact Section Styles */
+        .uc-contact-section {
+            background: linear-gradient(135deg, var(--light-bg) 0%, var(--lighter-blue) 100%);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uc-contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+        }
+
+        .uc-contact-section::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .uc-section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .uc-section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .uc-section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 2px;
+        }
+
+        .uc-section-title p {
+            font-size: 1.1rem;
+            color: var(--gray-text);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .uc-contact-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+
+        .uc-contact-info {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uc-contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+        }
+
+        .uc-contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            transition: transform 0.3s ease;
+        }
+
+        .uc-contact-info-item:hover {
+            transform: translateX(5px);
+        }
+
+        .uc-contact-info-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .uc-contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-right: 20px;
+            box-shadow: var(--shadow);
+        }
+
+        .uc-contact-details h6 {
+            color: var(--dark-text);
+            font-weight: 600;
+            margin-bottom: 5px;
+            font-size: 1rem;
+        }
+
+        .uc-contact-details p {
+            color: var(--gray-text);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .uc-contact-form-container {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uc-contact-form-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-blue), var(--secondary-blue));
+        }
+
+        .uc-form-header {
+            text-center: center;
+            margin-bottom: 35px;
+        }
+
+        .uc-form-header h3 {
+            color: var(--dark-text);
+            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .uc-form-header p {
+            color: var(--gray-text);
+            margin: 0;
+        }
+
+        .uc-form-floating {
+            margin-bottom: 25px;
+        }
+
+        .uc-form-floating > .form-control {
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 15px 10px;
+            font-size: 1rem;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+            min-height: 60px;
+        }
+
+        .uc-form-floating > textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .uc-form-floating > .form-control:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.15);
+            background-color: var(--white);
+        }
+
+        .uc-form-floating > label {
+            color: var(--gray-text);
+            font-weight: 400;
+            padding-left: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .uc-form-floating > .form-control:focus ~ label,
+        .uc-form-floating > .form-control:not(:placeholder-shown) ~ label {
+            color: var(--primary-blue);
+            font-weight: 500;
+        }
+
+        .uc-form-control:valid {
+            border-color: #28a745;
+        }
+
+        .uc-form-control:invalid:not(:placeholder-shown) {
+            border-color: #dc3545;
+        }
+
+        .uc-submit-btn {
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border: none;
+            color: var(--white);
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .uc-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-blue));
+        }
+
+        .uc-submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .uc-submit-btn i {
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .uc-submit-btn:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Floating Action Button */
+        .uc-floating-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-lg);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: none;
+            text-decoration: none;
+        }
+
+        .uc-floating-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 25px -5px rgba(37, 99, 235, 0.4);
+            color: var(--white);
+        }
+
+        .uc-floating-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        /* Floating button tooltip */
+        .uc-floating-btn::before {
+            content: 'Ask Us';
+            position: absolute;
+            right: 70px;
+            background: var(--dark-text);
+            color: var(--white);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        .uc-floating-btn::after {
+            content: '';
+            position: absolute;
+            right: 60px;
+            width: 0;
+            height: 0;
+            border-left: 6px solid var(--dark-text);
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .uc-floating-btn:hover::before,
+        .uc-floating-btn:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .uc-section-title h2 {
+                font-size: 2rem;
+            }
+
+            .uc-contact-form-container {
+                padding: 30px 20px;
+                margin: 0 15px;
+            }
+
+            .uc-contact-info {
+                padding: 30px 20px;
+                margin: 0 15px 30px;
+            }
+
+            .uc-contact-info-item {
+                flex-direction: column;
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+            .uc-contact-icon {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .uc-floating-btn {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+                font-size: 1.3rem;
+            }
+
+            .uc-floating-btn::before {
+                display: none;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation for submit button */
+        .uc-submit-btn.uc-loading {
+            pointer-events: none;
+        }
+
+        .uc-submit-btn.uc-loading .uc-btn-text {
+            opacity: 0;
+        }
+
+        .uc-submit-btn .uc-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .uc-submit-btn.uc-loading .uc-spinner {
+            opacity: 1;
+        }
+
+        @keyframes uc-spin {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .uc-submit-btn.uc-loading .uc-spinner {
+            animation: uc-spin 1s linear infinite;
+        }
+      
     </style>
 </head>
 <body>
@@ -3390,6 +3782,10 @@
                 <span class="ighehrc-location-text">Gurugram</span>
             </a>
             <a href="#" class="ighehrc-location-item">
+                <i class="fas fa-city ighehrc-location-icon"></i>
+                <span class="ighehrc-location-text">Lucknow</span>
+            </a>
+            <a href="#" class="ighehrc-location-item">
                 <i class="fas fa-hospital ighehrc-location-icon"></i>
                 <span class="ighehrc-location-text">Amethi</span>
             </a>
@@ -3397,10 +3793,7 @@
                 <i class="fas fa-building ighehrc-location-icon"></i>
                 <span class="ighehrc-location-text">Sohna</span>
             </a>
-            <a href="#" class="ighehrc-location-item">
-                <i class="fas fa-city ighehrc-location-icon"></i>
-                <span class="ighehrc-location-text">Lucknow</span>
-            </a>
+            
             <a href="#" class="ighehrc-location-item">
                 <i class="fas fa-clinic-medical ighehrc-location-icon"></i>
                 <span class="ighehrc-location-text">Raebareli</span>
@@ -4411,6 +4804,138 @@
             </div>
         </div>
     </section>
+
+<!-- Contact Section -->
+<section id="uc-contact" class="uc-contact-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-subtitle">Contact</div>
+            <h2 class="section-title">Ask Us About Your Eye Problem</h2>
+            <p class="section-description">
+                See clearer, live better — ask us about your eye concerns today.<br>
+                Expert advice for every vision problem, just a question away.
+            </p>
+        </div>
+        
+        <div class="row justify-content-center uc-contact-wrapper">
+            <!-- Contact Information -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="uc-contact-info">
+                    <div class="uc-contact-info-item">
+                        <div class="uc-contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="uc-contact-details">
+                            <h6>Our Location</h6>
+                            <p>123 Business Street<br>City, State 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="uc-contact-info-item">
+                        <div class="uc-contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="uc-contact-details">
+                            <h6>Call Us</h6>
+                            <p>+1 (555) 123-4567<br>Mon - Fri: 9AM - 6PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="uc-contact-info-item">
+                        <div class="uc-contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="uc-contact-details">
+                            <h6>Email Us</h6>
+                            <p>hello@company.com<br>support@company.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="uc-contact-info-item">
+                        <div class="uc-contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="uc-contact-details">
+                            <h6>Response Time</h6>
+                            <p>Within 24 hours<br>We're here to help!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+                <div class="uc-contact-form-container">
+                    <div class="uc-form-header">
+                        <h3>Send us a Message</h3>
+                        <p>Fill out the form below and we'll get back to you shortly.</p>
+                    </div>
+                    
+                    <form id="ucContactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="uc-form-floating">
+                                    <input type="text" 
+                                           class="form-control uc-form-control" 
+                                           id="ucName" 
+                                           name="name"
+                                           placeholder="Your Name"
+                                           required>
+                                    <label for="ucName">Your Name</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="uc-form-floating">
+                                    <input type="email" 
+                                           class="form-control uc-form-control" 
+                                           id="ucEmail" 
+                                           name="email"
+                                           placeholder="Email Address"
+                                           required>
+                                    <label for="ucEmail">Email Address</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="uc-form-floating">
+                            <input type="tel" 
+                                   class="form-control uc-form-control" 
+                                   id="ucPhone" 
+                                   name="phone"
+                                   placeholder="Phone Number">
+                            <label for="ucPhone">Phone Number</label>
+                        </div>
+                        
+                        <div class="uc-form-floating">
+                            <textarea class="form-control uc-form-control" 
+                                      id="ucMessage" 
+                                      name="message"
+                                      placeholder="Your Message"
+                                      required></textarea>
+                            <label for="ucMessage">Your Message</label>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="uc-submit-btn">
+                                <span class="uc-btn-text">Send Message <i class="fas fa-paper-plane"></i></span>
+                                <div class="uc-spinner">
+                                    <i class="fas fa-spinner"></i>
+                                </div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Floating Action Button -->
+<a href="#uc-contact" class="uc-floating-btn">
+    <i class="fas fa-envelope"></i>
+</a>
+
+
     <footer>
       
         
@@ -4468,9 +4993,74 @@
 
 
 
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Form validation and submission
+        document.getElementById('ucContactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const submitBtn = form.querySelector('.uc-submit-btn');
+            
+            // Add loading state
+            submitBtn.classList.add('uc-loading');
+            
+            // Simulate form submission (replace with your actual form handling)
+            setTimeout(() => {
+                submitBtn.classList.remove('uc-loading');
+                
+                // Show success message (you can customize this)
+                alert('Thank you! Your message has been sent successfully.');
+                
+                // Reset form
+                form.reset();
+                
+                // Remove validation classes
+                form.querySelectorAll('.uc-form-control').forEach(input => {
+                    input.classList.remove('is-valid', 'is-invalid');
+                });
+            }, 2000);
+        });
+
+        // Real-time form validation
+        document.querySelectorAll('.uc-form-control').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.checkValidity()) {
+                    this.classList.add('is-valid');
+                    this.classList.remove('is-invalid');
+                } else {
+                    this.classList.add('is-invalid');
+                    this.classList.remove('is-valid');
+                }
+            });
+        });
+
+        // Smooth scroll for floating button
+        document.querySelector('.uc-floating-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('uc-contact').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+        // Hide floating button when in contact section
+        window.addEventListener('scroll', function() {
+            const contactSection = document.getElementById('uc-contact');
+            const floatingBtn = document.querySelector('.uc-floating-btn');
+            const rect = contactSection.getBoundingClientRect();
+            
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                floatingBtn.style.opacity = '0.3';
+            } else {
+                floatingBtn.style.opacity = '1';
+            }
+        });
+    </script>
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
